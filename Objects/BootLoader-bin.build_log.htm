@@ -1,0 +1,143 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.33.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Nourhan Mansour, None, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.33.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.15
+Assembler:       Armasm.exe V6.15
+Linker/Locator:  ArmLink.exe V6.15
+Library Manager: ArmAr.exe V6.15
+Hex Converter:   FromElf.exe V6.15
+CPU DLL:         SARMCM3.DLL V5.33.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
+Dialog DLL:      TCM.DLL V1.48.0.0
+ 
+<h2>Project:</h2>
+F:\Projects\Boot Loader Keil\BootLoader- Keil.uvprojx
+Project File Date:  12/30/2020
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.15', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+main.c(1): warning: In file included from...
+./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
+#endif 
+       ^
+main.c(2): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(4): warning: In file included from...
+./RCC_interface.h(87): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void RCC_voidInitSystemClock();
+                            ^
+                             void
+main.c(5): warning: In file included from...
+./UART_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void UART1_voidInit();
+                   ^
+                    void
+./UART_interface.h(49): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void UART1_voidDeInit();
+                     ^
+                      void
+main.c(6): warning: In file included from...
+./FPEC_interface.h(24): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void FPEC_voidInit();
+                  ^
+                   void
+./FPEC_interface.h(32): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void FPEC_UnlockOptionBytes();
+                           ^
+                            void
+./FPEC_interface.h(40): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void FPEC_voidLock();
+                  ^
+                   void
+./FPEC_interface.h(48): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void FPEC_voidLockOptionBytes();
+                             ^
+                              void
+./FPEC_interface.h(96): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void FPEC_voidEraseAllFlash();
+                           ^
+                            void
+./FPEC_interface.h(107): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+u8 FPEC_CheckForErrors();
+                      ^
+                       void
+main.c(21): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        GPIO_voidInitPortPinDirection(PORTA  , 9  , 0b1001);      // TX PIN
+                                                    ^
+main.c(22): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        GPIO_voidInitPortPinDirection(PORTA  , 10 , 0b0100);      // RX PIN
+                                                    ^
+main.c(25): warning: passing 'char [15]' to parameter of type 'u8 *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        UART1_voidTransmitSync( "HELLO WORLD!!!" , 14);
+                                ^~~~~~~~~~~~~~~~
+./UART_interface.h(30): note: passing argument to parameter 'cpy_arr' here
+void UART1_voidTransmitSync(u8 cpy_arr[] , u8 cpy_arrLen);
+                               ^
+main.c(30): warning: passing 'volatile u8 [2]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                        UART1_voidRecieveSync( MAX_RECIEVED_DATA , recievedArr);
+                                                                   ^~~~~~~~~~~
+./UART_interface.h(40): note: passing argument to parameter 'DataRecieved' here
+void  UART1_voidRecieveSync( u16 cpy_data_length , u8 * DataRecieved);
+                                                        ^
+main.c(31): warning: passing 'volatile u8 [2]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                        UART1_voidTransmitSync(recievedArr , 2);
+                                               ^~~~~~~~~~~
+./UART_interface.h(30): note: passing argument to parameter 'cpy_arr' here
+void UART1_voidTransmitSync(u8 cpy_arr[] , u8 cpy_arrLen);
+                               ^
+main.c(33): warning: 'return' will never be executed [-Wunreachable-code-return]
+        return 0;
+               ^
+17 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=1320 RO-data=252 RW-data=0 ZI-data=1632  
+FromELF: creating hex file...
+".\Objects\BootLoader-bin.axf" - 0 Error(s), 17 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
+                Keil.STM32F1xx_DFP.2.3.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\Device\STM32F103C8
+  .\RTE\_Target_1
+  C:\Users\poppr\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\poppr\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
