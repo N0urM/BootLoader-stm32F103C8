@@ -1,13 +1,19 @@
-/********************************************************/ 
-/* Author : Nourhan Mansour                             */
-/* Date   : 13/10/2020                                  */
-/* Version: 1.0                                         */
-/* File   : FPEC_config.h                               */
-/********************************************************/ 
-#ifndef FPEC_CONFIG_H
-#define FPEC_CONFIG_H
+/*****************************************************************************************************************/
+/* Author  : Eman ashraf                                                                                         */
+/* version : v01                                                                                                 */
+/* Date    : 11\11\2020                                                                                        */ 
+/*****************************************************************************************************************/
+#ifndef _FPEC_CONFIG_H
+#define _FPEC_CONFIG_H
 
 
-#define MAX_PAGE_NO     64
+// choose application area start and end page number
 
-#endif // End Of File
+#define FIRST_PAGE_NUMBER   4
+#define LAST_PAGE_NUMBER   64
+
+
+
+
+
+#endif

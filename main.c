@@ -5,7 +5,7 @@
 #include "UART_interface.h"
 #include "FPEC_interface.h"
 #include "GPIO_interface.h"
-
+#include "CRC_interface.h"
 #define MAX_RECIEVED_DATA	2
 int main() {
 
@@ -14,7 +14,7 @@ int main() {
 	RCC_voidEnableClock(t_APB2, RCC_APB2ENR_IOPAEN);  		// Init Clock PortA
 	RCC_voidEnableClock(t_AHB , RCC_AHBENR_FLITFEN);		// Init Clock for Flash Drive
 
-	FPEC_voidInit();										// Init Flash Driver
+	FPEC_voidFlashInit();										// Init Flash Driver
 	UART1_voidInit();										// Init UART
 
 	/* Configure TX & RX pins for UART */
