@@ -11,8 +11,9 @@
 
 
 
-
-void FPEC_voidFlashWrite(u16 *Copy_u16Data ,u32 Copy_u32Address , u8 Copy_u8DataByteLength);
+void FPEC_voidFlashInit(void);
+u16 FPEC_u16ReadHalfWord(u8 cpyPage , u8 offset);
+void FPEC_voidFlashWrite(u16 *Copy_u16Data ,u8 cpyPage , u8 Copy_u8DataByteLength , u8 offset);
 void FPEC_voidFlashPageErase(u8 Copy_u8PageNumber);
 void FPEC_voidEraseAppArea(void);
 void FPEC_voidFlashLock();
