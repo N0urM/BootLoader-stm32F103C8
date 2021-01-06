@@ -27,21 +27,24 @@ void BL_voidWriteBranchingCondition(u16 cpyBC)
     u16 CRCValLOW  = FPEC_u16ReadHalfWord(CONDITION_PAGE , CRC_OFFSET);
     u16 CRCValHigh = FPEC_u16ReadHalfWord(CONDITION_PAGE , CRC_OFFSET+0x02); 
     u16 DataLen = FPEC_u16ReadHalfWord(CONDITION_PAGE , DATA_LEN_OFFSET);
-
+		volatile u16 Data;
     FPEC_voidFlashPageErase(CONDITION_PAGE);
 
     switch (cpyBC)
     {
     case 'A':
-        FPEC_voidFlashWrite('AA' , CONDITION_PAGE , 2 ,BC_OFFSET );
+				Data = 0x1111;
         break;
     case 'B':
-        FPEC_voidFlashWrite('BB' , CONDITION_PAGE , 2 ,BC_OFFSET );
+        Data = 0x2222;
         break;
     default:
-        FPEC_voidFlashWrite('EE' , CONDITION_PAGE , 2 ,BC_OFFSET );
+        Data = 0x3333; 
         break;
     }
+		
+		FPEC_voidFlashWrite(Data , CONDITION_PAGE , 2 ,BC_OFFSET );
+
     FPEC_voidFlashWrite(DataLen , CONDITION_PAGE , 2 , DATA_LEN_OFFSET );
     FPEC_voidFlashWrite(CRCValLOW , CONDITION_PAGE , 2 , CRC_OFFSET );
     FPEC_voidFlashWrite(CRCValHigh , CONDITION_PAGE , 2 ,CRC_OFFSET+0x02);

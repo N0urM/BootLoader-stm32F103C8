@@ -30,7 +30,6 @@ int main() {
 	*/
 	BL_voidWriteBranchingCondition('A');
 	volatile u16 BC =  BL_u8CheckBranchingCondition();
-	
 	while (1)
 	{
 

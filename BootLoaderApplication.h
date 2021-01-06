@@ -6,9 +6,9 @@
 #ifndef  BL_APP_H
 #define  BL_APP_H
 
-#define APP_PAGE        5 
-#define BL_PAGE         0
-#define CONDITION_PAGE  63
+#define APP_PAGE        		5 
+#define BL_PAGE         		0
+#define CONDITION_PAGE  		63
 
 #define BC_OFFSET           0x00
 #define DATA_LEN_OFFSET     0x02

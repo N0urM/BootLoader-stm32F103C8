@@ -19,7 +19,7 @@
 #define MICRO_OUTPUT_CLOCK      MCO_NOCLK            
 
 // Clock Source: HSI - HSE_RC - HSE_XTAL 
-#define CLOCK_SRC               HSE_XTAL
+#define CLOCK_SRC               HSI
 // Clock PLL: 1:Enable   -   0:Disable
 #define CLOCK_PLL              	0
 
