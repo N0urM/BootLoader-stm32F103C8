@@ -6,6 +6,7 @@
 #include "FPEC_interface.h"
 #include "GPIO_interface.h"
 #include "CRC_interface.h"
+#include "IWDG_interface.h"
 
 #define MAX_RECIEVED_DATA	2
 int main() {
@@ -28,6 +29,8 @@ int main() {
 	UART1_voidRecieveSync( MAX_RECIEVED_DATA , recievedArr);
 	UART1_voidTransmitSync(recievedArr , 2);
 	*/
+		 IWDG_voidReset();
+
 	BL_voidWriteBranchingCondition('A');
 	volatile u16 BC =  BL_u8CheckBranchingCondition();
 	while (1)

@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.33.0.0
 Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Nourhan Mansour, None, LIC=----
+License Information: eman ashraf, no, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.33.0.0
@@ -21,12 +21,282 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
 Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
-F:\Projects\BootLoaderKeil\BootLoader- Keil.uvprojx
-Project File Date:  12/31/2020
+D:\imt course\New folder (2)\BootLoader\BootLoader-stm32F103C8\BootLoader- Keil.uvprojx
+Project File Date:  01/07/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.15', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
+main.c(1): warning: In file included from...
+./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
+#endif 
+       ^
+main.c(2): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(4): warning: In file included from...
+./RCC_interface.h(87): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void RCC_voidInitSystemClock();
+                            ^
+                             void
+main.c(5): warning: In file included from...
+./UART_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void UART1_voidInit();
+                   ^
+                    void
+./UART_interface.h(49): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void UART1_voidDeInit();
+                     ^
+                      void
+main.c(6): warning: In file included from...
+./FPEC_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void FPEC_voidFlashLock();
+                       ^
+                        void
+main.c(8): warning: In file included from...
+./CRC_interface.h(16): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void CRC_voidReset();
+                  ^
+                   void
+./CRC_interface.h(19): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(9): warning: In file included from...
+./IWDG_interface.h(9): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void IWDG_voidReset();
+                   ^
+                    void
+main.c(23): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        GPIO_voidInitPortPinDirection(PORTA  , 9  , 0b1001);      // TX PIN
+                                                    ^
+main.c(24): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        GPIO_voidInitPortPinDirection(PORTA  , 10 , 0b0100);      // RX PIN
+                                                    ^
+main.c(34): warning: implicit declaration of function 'BL_voidWriteBranchingCondition' is invalid in C99 [-Wimplicit-function-declaration]
+        BL_voidWriteBranchingCondition('A');
+        ^
+main.c(35): warning: implicit declaration of function 'BL_u8CheckBranchingCondition' is invalid in C99 [-Wimplicit-function-declaration]
+        volatile u16 BC =  BL_u8CheckBranchingCondition();
+                           ^
+main.c(35): warning: implicit conversion loses integer precision: 'int' to 'u16' (aka 'unsigned short') [-Wimplicit-int-conversion]
+        volatile u16 BC =  BL_u8CheckBranchingCondition();
+                     ~~    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.c(35): warning: unused variable 'BC' [-Wunused-variable]
+        volatile u16 BC =  BL_u8CheckBranchingCondition();
+                     ^
+main.c(40): warning: 'return' will never be executed [-Wunreachable-code-return]
+        return 0;
+               ^
+16 warnings generated.
+compiling main.c...
+GPIO_program.c(9): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+GPIO_program.c(10): warning: In file included from...
+./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
+#endif 
+       ^
+GPIO_program.c(26): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+            GPIOA_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
+                              ^
+GPIO_program.c(26): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOA_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
+                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GPIO_program.c(27): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOA_CRL |= (mode << ( cpy_pin * 4 ) );            // Set configuration
+                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~
+GPIO_program.c(29): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+            GPIOA_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
+                              ^
+GPIO_program.c(29): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOA_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
+                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GPIO_program.c(30): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOA_CRH |= (mode << ( (cpy_pin-8) * 4 ) );        // Set configuration    
+                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~~~~~
+GPIO_program.c(37): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+            GPIOB_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
+                              ^
+GPIO_program.c(37): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOB_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
+                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GPIO_program.c(38): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOB_CRL |= (mode << ( cpy_pin * 4 ) );            // Set configuration
+                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~
+GPIO_program.c(40): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+            GPIOB_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
+                              ^
+GPIO_program.c(40): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOB_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
+                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GPIO_program.c(41): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOB_CRH |= (mode << ( (cpy_pin-8) * 4 ) );        // Set configuration    
+                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~~~~~
+GPIO_program.c(47): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+            GPIOC_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
+                              ^
+GPIO_program.c(47): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOC_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
+                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GPIO_program.c(48): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOC_CRL |= (mode << ( cpy_pin * 4 ) );            // Set configuration
+                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~
+GPIO_program.c(50): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+            GPIOC_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
+                              ^
+GPIO_program.c(50): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOC_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
+                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GPIO_program.c(51): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+            GPIOC_CRH |= (mode << ( (cpy_pin-8) * 4 ) );        // Set configuration    
+                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~~~~~
+GPIO_program.c(55): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+    default:
+    ^
+GPIO_program.c(74): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+             GPIOA_CRL |= (mode << ( pins_num * 4 ) );      
+                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
+GPIO_program.c(77): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+             GPIOA_CRH |= (mode << ( pins_num * 4 ) );
+                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
+GPIO_program.c(89): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+             GPIOB_CRL |= (mode << ( pins_num * 4 ) );
+                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
+GPIO_program.c(92): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+             GPIOB_CRH |= (mode << ( pins_num * 4 ) );
+                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
+GPIO_program.c(103): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+             GPIOC_CRL |= (mode << ( pins_num * 4 ) );
+                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
+GPIO_program.c(106): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+             GPIOC_CRH |= (mode << ( pins_num * 4 ) );
+                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
+GPIO_program.c(109): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+    default:
+    ^
+GPIO_program.c(134): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+    default:
+    ^
+29 warnings generated.
+compiling GPIO_program.c...
+FPEC_program.c(7): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+FPEC_program.c(8): warning: In file included from...
+./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
+#endif 
+       ^
+FPEC_program.c(10): warning: In file included from...
+./FPEC_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void FPEC_voidFlashLock();
+                       ^
+                        void
+FPEC_program.c(12): warning: In file included from...
+./FPEC_config.h(19): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+FPEC_program.c(52): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                CLR_BIT(FPEC->CR,BSY);
+                ^~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+FPEC_program.c(34): warning: unused variable 'i' [-Wunused-variable]
+        u8 i ;
+           ^
+FPEC_program.c(84): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT(FPEC->CR,PER);
+        ^~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+FPEC_program.c(98): warning: no previous prototype for function 'FPEC_voidFlashLock' [-Wmissing-prototypes]
+void FPEC_voidFlashLock(void)
+     ^
+./FPEC_interface.h(19): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void FPEC_voidFlashLock();
+     ^
+                        void
+FPEC_program.c(123): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                CLR_BIT(FPEC->CR,BSY);
+                ^~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+FPEC_program.c(119): warning: while loop has empty body [-Wempty-body]
+        while (GET_BIT(FPEC->SR,BSY ) == 1);
+                                           ^
+FPEC_program.c(119): note: put the semicolon on a separate line to silence this warning
+FPEC_program.c(104): warning: no previous prototype for function 'FPEC_voidFlashMassErase' [-Wmissing-prototypes]
+void FPEC_voidFlashMassErase()
+     ^
+FPEC_program.c(104): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void FPEC_voidFlashMassErase()
+^
+static 
+FPEC_program.c(104): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void FPEC_voidFlashMassErase()
+                            ^
+12 warnings generated.
+compiling FPEC_program.c...
+RCC_program.c(9): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+RCC_program.c(10): warning: In file included from...
+./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
+#endif 
+       ^
+RCC_program.c(15): warning: In file included from...
+./RCC_interface.h(87): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void RCC_voidInitSystemClock();
+                            ^
+                             void
+RCC_program.c(53): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        RCC_CR &= ~(31 << RCC_CR_HSITRIM0);         // Clear 5 trimming bits
+               ~~ ^~~~~~~~~~~~~~~~~~~~~~~~
+RCC_program.c(58): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT (RCC_CFGR , RCC_CFGR_SW0);      
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+RCC_program.c(59): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT (RCC_CFGR , RCC_CFGR_SW1);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+RCC_program.c(90): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+    RCC_CFGR |=  ( MICRO_OUTPUT_CLOCK <<  RCC_CFGR_MCO0); //Select output clock
+                   ^
+./RCC_config.h(19): note: expanded from macro 'MICRO_OUTPUT_CLOCK'
+#define MICRO_OUTPUT_CLOCK      MCO_NOCLK            
+                                ^
+./RCC_private.h(35): note: expanded from macro 'MCO_NOCLK'
+#define     MCO_NOCLK       0b000
+                            ^
+RCC_program.c(20): warning: no previous prototype for function 'RCC_voidInitSystemClock' [-Wmissing-prototypes]
+void RCC_voidInitSystemClock(){
+     ^
+./RCC_interface.h(87): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void RCC_voidInitSystemClock();
+     ^
+                             void
+RCC_program.c(20): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void RCC_voidInitSystemClock(){
+                            ^
+RCC_program.c(109): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+        default:
+        ^
+RCC_program.c(133): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+        default:
+        ^
+11 warnings generated.
+compiling RCC_program.c...
 UART_program.c(9): warning: In file included from...
 ./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
 #endif
@@ -90,34 +360,15 @@ UART_program.c(72): warning: implicit conversion changes signedness: 'int' to 'u
                                       ~~ ^~~~~~~~~~~~~
 12 warnings generated.
 compiling UART_program.c...
-main.c(1): warning: In file included from...
-./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
-#endif 
-       ^
-main.c(2): warning: In file included from...
+CRC_program.c(6): warning: In file included from...
 ./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-main.c(4): warning: In file included from...
-./RCC_interface.h(87): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void RCC_voidInitSystemClock();
-                            ^
-                             void
-main.c(5): warning: In file included from...
-./UART_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidInit();
-                   ^
-                    void
-./UART_interface.h(49): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidDeInit();
-                     ^
-                      void
-main.c(6): warning: In file included from...
-./FPEC_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void FPEC_voidFlashLock();
-                       ^
-                        void
-main.c(8): warning: In file included from...
+CRC_program.c(7): warning: In file included from...
+./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
+#endif 
+       ^
+CRC_program.c(9): warning: In file included from...
 ./CRC_interface.h(16): warning: this function declaration is not a prototype [-Wstrict-prototypes]
 void CRC_voidReset();
                   ^
@@ -125,29 +376,22 @@ void CRC_voidReset();
 ./CRC_interface.h(19): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-main.c(22): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-        GPIO_voidInitPortPinDirection(PORTA  , 9  , 0b1001);      // TX PIN
-                                                    ^
-main.c(23): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-        GPIO_voidInitPortPinDirection(PORTA  , 10 , 0b0100);      // RX PIN
-                                                    ^
-main.c(31): warning: implicit declaration of function 'BL_voidWriteBranchingCondition' is invalid in C99 [-Wimplicit-function-declaration]
-        BL_voidWriteBranchingCondition('A');
-        ^
-main.c(32): warning: implicit declaration of function 'BL_u8CheckBranchingCondition' is invalid in C99 [-Wimplicit-function-declaration]
-        volatile u16 BC =  BL_u8CheckBranchingCondition();
-                           ^
-main.c(32): warning: implicit conversion loses integer precision: 'int' to 'u16' (aka 'unsigned short') [-Wimplicit-int-conversion]
-        volatile u16 BC =  BL_u8CheckBranchingCondition();
-                     ~~    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-main.c(32): warning: unused variable 'BC' [-Wunused-variable]
-        volatile u16 BC =  BL_u8CheckBranchingCondition();
-                     ^
-main.c(37): warning: 'return' will never be executed [-Wunreachable-code-return]
-        return 0;
-               ^
-15 warnings generated.
-compiling main.c...
+CRC_program.c(11): warning: In file included from...
+./CRC_config.h(17): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+CRC_program.c(42): warning: no previous prototype for function 'CRC_voidReset' [-Wmissing-prototypes]
+void CRC_voidReset()
+     ^
+./CRC_interface.h(16): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void CRC_voidReset();
+     ^
+                   void
+CRC_program.c(42): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void CRC_voidReset()
+                  ^
+7 warnings generated.
+compiling CRC_program.c...
 BootLoaderApplication.c(6): warning: In file included from...
 ./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
 #endif
@@ -272,245 +516,6 @@ u32 BL_u32ReciveCRC(){}
                       ^
 29 warnings generated.
 compiling BootLoaderApplication.c...
-CRC_program.c(6): warning: In file included from...
-./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-CRC_program.c(7): warning: In file included from...
-./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
-#endif 
-       ^
-CRC_program.c(9): warning: In file included from...
-./CRC_interface.h(16): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void CRC_voidReset();
-                  ^
-                   void
-./CRC_interface.h(19): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-CRC_program.c(11): warning: In file included from...
-./CRC_config.h(17): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-CRC_program.c(42): warning: no previous prototype for function 'CRC_voidReset' [-Wmissing-prototypes]
-void CRC_voidReset()
-     ^
-./CRC_interface.h(16): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void CRC_voidReset();
-     ^
-                   void
-CRC_program.c(42): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void CRC_voidReset()
-                  ^
-7 warnings generated.
-compiling CRC_program.c...
-GPIO_program.c(9): warning: In file included from...
-./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-GPIO_program.c(10): warning: In file included from...
-./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
-#endif 
-       ^
-GPIO_program.c(26): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-            GPIOA_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
-                              ^
-GPIO_program.c(26): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOA_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
-                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPIO_program.c(27): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOA_CRL |= (mode << ( cpy_pin * 4 ) );            // Set configuration
-                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~
-GPIO_program.c(29): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-            GPIOA_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
-                              ^
-GPIO_program.c(29): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOA_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
-                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPIO_program.c(30): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOA_CRH |= (mode << ( (cpy_pin-8) * 4 ) );        // Set configuration    
-                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~~~~~
-GPIO_program.c(37): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-            GPIOB_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
-                              ^
-GPIO_program.c(37): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOB_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
-                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPIO_program.c(38): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOB_CRL |= (mode << ( cpy_pin * 4 ) );            // Set configuration
-                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~
-GPIO_program.c(40): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-            GPIOB_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
-                              ^
-GPIO_program.c(40): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOB_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
-                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPIO_program.c(41): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOB_CRH |= (mode << ( (cpy_pin-8) * 4 ) );        // Set configuration    
-                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~~~~~
-GPIO_program.c(47): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-            GPIOC_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
-                              ^
-GPIO_program.c(47): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOC_CRL &= ~ ( (0b1111)<< ( cpy_pin * 4 ) );      // Clear configuration bits
-                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPIO_program.c(48): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOC_CRL |= (mode << ( cpy_pin * 4 ) );            // Set configuration
-                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~
-GPIO_program.c(50): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-            GPIOC_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
-                              ^
-GPIO_program.c(50): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOC_CRH &= ~ ( (0b1111)<< ( (cpy_pin-8) * 4 ) );  // Clear configuration bits
-                      ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPIO_program.c(51): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-            GPIOC_CRH |= (mode << ( (cpy_pin-8) * 4 ) );        // Set configuration    
-                      ~~  ~~~~~^~~~~~~~~~~~~~~~~~~~~~
-GPIO_program.c(55): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
-    default:
-    ^
-GPIO_program.c(74): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-             GPIOA_CRL |= (mode << ( pins_num * 4 ) );      
-                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
-GPIO_program.c(77): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-             GPIOA_CRH |= (mode << ( pins_num * 4 ) );
-                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
-GPIO_program.c(89): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-             GPIOB_CRL |= (mode << ( pins_num * 4 ) );
-                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
-GPIO_program.c(92): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-             GPIOB_CRH |= (mode << ( pins_num * 4 ) );
-                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
-GPIO_program.c(103): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-             GPIOC_CRL |= (mode << ( pins_num * 4 ) );
-                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
-GPIO_program.c(106): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-             GPIOC_CRH |= (mode << ( pins_num * 4 ) );
-                       ~~  ~~~~~^~~~~~~~~~~~~~~~~~~
-GPIO_program.c(109): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
-    default:
-    ^
-GPIO_program.c(134): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
-    default:
-    ^
-29 warnings generated.
-compiling GPIO_program.c...
-RCC_program.c(9): warning: In file included from...
-./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-RCC_program.c(10): warning: In file included from...
-./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
-#endif 
-       ^
-RCC_program.c(15): warning: In file included from...
-./RCC_interface.h(87): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void RCC_voidInitSystemClock();
-                            ^
-                             void
-RCC_program.c(53): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        RCC_CR &= ~(31 << RCC_CR_HSITRIM0);         // Clear 5 trimming bits
-               ~~ ^~~~~~~~~~~~~~~~~~~~~~~~
-RCC_program.c(58): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLR_BIT (RCC_CFGR , RCC_CFGR_SW0);      
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-RCC_program.c(59): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLR_BIT (RCC_CFGR , RCC_CFGR_SW1);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-RCC_program.c(90): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-    RCC_CFGR |=  ( MICRO_OUTPUT_CLOCK <<  RCC_CFGR_MCO0); //Select output clock
-                   ^
-./RCC_config.h(19): note: expanded from macro 'MICRO_OUTPUT_CLOCK'
-#define MICRO_OUTPUT_CLOCK      MCO_NOCLK            
-                                ^
-./RCC_private.h(35): note: expanded from macro 'MCO_NOCLK'
-#define     MCO_NOCLK       0b000
-                            ^
-RCC_program.c(20): warning: no previous prototype for function 'RCC_voidInitSystemClock' [-Wmissing-prototypes]
-void RCC_voidInitSystemClock(){
-     ^
-./RCC_interface.h(87): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void RCC_voidInitSystemClock();
-     ^
-                             void
-RCC_program.c(20): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void RCC_voidInitSystemClock(){
-                            ^
-RCC_program.c(109): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
-        default:
-        ^
-RCC_program.c(133): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
-        default:
-        ^
-11 warnings generated.
-compiling RCC_program.c...
-FPEC_program.c(7): warning: In file included from...
-./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-FPEC_program.c(8): warning: In file included from...
-./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
-#endif 
-       ^
-FPEC_program.c(10): warning: In file included from...
-./FPEC_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void FPEC_voidFlashLock();
-                       ^
-                        void
-FPEC_program.c(12): warning: In file included from...
-./FPEC_config.h(19): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-FPEC_program.c(52): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                CLR_BIT(FPEC->CR,BSY);
-                ^~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-FPEC_program.c(34): warning: unused variable 'i' [-Wunused-variable]
-        u8 i ;
-           ^
-FPEC_program.c(84): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLR_BIT(FPEC->CR,PER);
-        ^~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-FPEC_program.c(98): warning: no previous prototype for function 'FPEC_voidFlashLock' [-Wmissing-prototypes]
-void FPEC_voidFlashLock(void)
-     ^
-./FPEC_interface.h(19): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void FPEC_voidFlashLock();
-     ^
-                        void
-FPEC_program.c(123): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                CLR_BIT(FPEC->CR,BSY);
-                ^~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-FPEC_program.c(119): warning: while loop has empty body [-Wempty-body]
-        while (GET_BIT(FPEC->SR,BSY ) == 1);
-                                           ^
-FPEC_program.c(119): note: put the semicolon on a separate line to silence this warning
-FPEC_program.c(104): warning: no previous prototype for function 'FPEC_voidFlashMassErase' [-Wmissing-prototypes]
-void FPEC_voidFlashMassErase()
-     ^
-FPEC_program.c(104): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void FPEC_voidFlashMassErase()
-^
-static 
-FPEC_program.c(104): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void FPEC_voidFlashMassErase()
-                            ^
-12 warnings generated.
-compiling FPEC_program.c...
 assembling startup_stm32f10x_md.s...
 RTE/Device/STM32F103C8/system_stm32f10x.c(167): warning: no previous extern declaration for non-static variable 'AHBPrescTable' [-Wmissing-variable-declarations]
 __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
@@ -521,9 +526,11 @@ __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9}
 1 warning generated.
 compiling system_stm32f10x.c...
 linking...
-Program Size: Code=1520 RO-data=252 RW-data=0 ZI-data=1632  
-FromELF: creating hex file...
-".\Objects\BootLoader-bin.axf" - 0 Error(s), 116 Warning(s).
+.\Objects\BootLoader-bin.axf: Error: L6218E: Undefined symbol IWDG_voidReset (referred from main.o).
+Not enough information to list image symbols.
+Not enough information to list load addresses in the image map.
+Finished: 2 information, 0 warning and 1 error messages.
+".\Objects\BootLoader-bin.axf" - 1 Error(s), 117 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -542,19 +549,20 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   .\RTE\Device\STM32F103C8
   .\RTE\_Target_1
-  C:\Users\poppr\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
-  C:\Users\poppr\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+  C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
       Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\system_stm32f10x.c
-Build Time Elapsed:  00:00:02
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+Target not created.
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
