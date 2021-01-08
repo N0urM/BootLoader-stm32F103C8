@@ -24,19 +24,19 @@
     Parameters   : none
     Return value : none
 ******************************************************************/
-void BL_voidProcessPayLoadMain();
+void BL_voidProcessPayLoadMain(void);
 
-u8 BL_u8CheckBranchingCondition();
+u8 BL_u8CheckBranchingCondition(void);
 void BL_voidWriteBranchingCondition(u16 cpyBC);
 void BL_voidWriteCRC(u32 cpyCRC);
 void BL_voidValidateCRCFromFlash(u16 cpyDataLength , u32 cpyCRCValue); 
-void BL_voidSoftReset();
+void BL_voidSoftReset(void);
 
 /********** Private functions **************/
 
-u16 BL_u16ReciveDataLength();
-void BL_voidRecievePageOfData(u8 * cpyDataStream);  // 1024 bytes 
-u32 BL_u32ReciveCRC();
+u16 BL_u16ReciveDataLength(void);
+void BL_voidRecievePageOfData(u8 * cpyDataStream , u8 cpyDataLength);
+u32 BL_u32ReciveCRC(void);
 
 
 #endif

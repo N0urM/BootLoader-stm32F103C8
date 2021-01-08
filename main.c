@@ -23,9 +23,10 @@ int main() {
 	GPIO_voidInitPortPinDirection(PORTA  , 9  , 0b1001);      // TX PIN
 	GPIO_voidInitPortPinDirection(PORTA  , 10 , 0b0100);	  	// RX PIN
 
-	BL_voidWriteBranchingCondition('B');
-	volatile u8 BC =  BL_u8CheckBranchingCondition();
-	
+	//BL_voidWriteBranchingCondition('B');
+	//volatile u8 BC =  BL_u8CheckBranchingCondition();
+	volatile u8 DataPage[100] = {0};
+	BL_voidRecievePageOfData(DataPage , 100);
 	
 	while (1)
 	{
