@@ -2,5 +2,6 @@ DebugConfig/
 Listings/
 Objects/
 RTE/
-*.uvprojx
-*.uvoptx
+BootLoader- Keil.uvprojx
+BootLoader- Keil.uvoptx
+BootLoader- Keil.uvguix.Nourhan.M

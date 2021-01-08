@@ -21,18 +21,12 @@ int main() {
 
 	/* Configure TX & RX pins for UART */
 	GPIO_voidInitPortPinDirection(PORTA  , 9  , 0b1001);      // TX PIN
-	GPIO_voidInitPortPinDirection(PORTA  , 10 , 0b0100);	  // RX PIN
+	GPIO_voidInitPortPinDirection(PORTA  , 10 , 0b0100);	  	// RX PIN
 
-	/* Test Code 
-	UART1_voidTransmitSync( "HELLO WORLD!!!" , 14);
-	volatile u8 recievedArr [MAX_RECIEVED_DATA];
-	UART1_voidRecieveSync( MAX_RECIEVED_DATA , recievedArr);
-	UART1_voidTransmitSync(recievedArr , 2);
-	*/
-		 IWDG_voidReset();
-
-	BL_voidWriteBranchingCondition('A');
-	volatile u16 BC =  BL_u8CheckBranchingCondition();
+	BL_voidWriteBranchingCondition('B');
+	volatile u8 BC =  BL_u8CheckBranchingCondition();
+	
+	
 	while (1)
 	{
 

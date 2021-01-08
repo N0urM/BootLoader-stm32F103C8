@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.33.0.0
 Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: eman ashraf, no, LIC=----
+License Information: Nourhan Mansour, None, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.33.0.0
@@ -21,12 +21,144 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
 Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
-D:\imt course\New folder (2)\BootLoader\BootLoader-stm32F103C8\BootLoader- Keil.uvprojx
+F:\Projects\BootLoaderKeil\BootLoader- Keil.uvprojx
 Project File Date:  01/07/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.15', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
+BootLoaderApplication.c(6): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+BootLoaderApplication.c(7): warning: In file included from...
+./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
+#endif 
+       ^
+BootLoaderApplication.c(9): warning: In file included from...
+./FPEC_interface.h(14): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void FPEC_voidFlashLock();
+                       ^
+                        void
+BootLoaderApplication.c(10): warning: In file included from...
+./CRC_interface.h(16): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void CRC_voidReset();
+                  ^
+                   void
+./CRC_interface.h(19): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+BootLoaderApplication.c(11): warning: In file included from...
+./UART_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void UART1_voidInit();
+                   ^
+                    void
+./UART_interface.h(49): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void UART1_voidDeInit();
+                     ^
+                      void
+BootLoaderApplication.c(12): warning: In file included from...
+./IWDG_interface.h(9): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void IWDG_voidReset();
+                   ^
+                    void
+BootLoaderApplication.c(14): warning: In file included from...
+./BootLoaderApplication.h(27): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void BL_voidProcessPayLoadMain();
+                              ^
+                               void
+./BootLoaderApplication.h(29): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+u8 BL_u8CheckBranchingCondition();
+                               ^
+                                void
+./BootLoaderApplication.h(33): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void BL_voidSoftReset();
+                     ^
+                      void
+./BootLoaderApplication.h(37): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+u16 BL_u16ReciveDataLength();
+                          ^
+                           void
+./BootLoaderApplication.h(39): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+u32 BL_u32ReciveCRC();
+                   ^
+                    void
+./BootLoaderApplication.h(42): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+BootLoaderApplication.c(16): warning: no previous prototype for function 'BL_voidProcessPayLoadMain' [-Wmissing-prototypes]
+void BL_voidProcessPayLoadMain(){}
+     ^
+./BootLoaderApplication.h(27): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void BL_voidProcessPayLoadMain();
+     ^
+                               void
+BootLoaderApplication.c(16): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void BL_voidProcessPayLoadMain(){}
+                              ^
+BootLoaderApplication.c(18): warning: no previous prototype for function 'BL_u8CheckBranchingCondition' [-Wmissing-prototypes]
+u8 BL_u8CheckBranchingCondition(){
+   ^
+./BootLoaderApplication.h(29): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+u8 BL_u8CheckBranchingCondition();
+   ^
+                                void
+BootLoaderApplication.c(18): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+u8 BL_u8CheckBranchingCondition(){
+                               ^
+BootLoaderApplication.c(61): warning: passing 'volatile u16 *' (aka 'volatile unsigned short *') to parameter of type 'u16 *' (aka 'unsigned short *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                FPEC_voidFlashWrite(&Data       , CONDITION_PAGE , 1 , BC_OFFSET );
+                                    ^~~~~
+./FPEC_interface.h(11): note: passing argument to parameter 'Copy_u16Data' here
+void FPEC_voidFlashWrite(u16 * Copy_u16Data ,u8 cpyPage , u8 Copy_u8DataArrayLength , u8 offset);
+                               ^
+BootLoaderApplication.c(67): warning: no previous prototype for function 'BL_voidSoftReset' [-Wmissing-prototypes]
+void BL_voidSoftReset()
+     ^
+./BootLoaderApplication.h(33): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void BL_voidSoftReset();
+     ^
+                      void
+BootLoaderApplication.c(67): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void BL_voidSoftReset()
+                     ^
+BootLoaderApplication.c(74): warning: unused parameter 'cpyDataLength' [-Wunused-parameter]
+void BL_voidValidateCRCFromFlash(u16 cpyDataLength , u32 cpyCRCValue){}
+                                     ^
+BootLoaderApplication.c(74): warning: unused parameter 'cpyCRCValue' [-Wunused-parameter]
+void BL_voidValidateCRCFromFlash(u16 cpyDataLength , u32 cpyCRCValue){}
+                                                         ^
+BootLoaderApplication.c(79): warning: no previous prototype for function 'BL_u16ReciveDataLength' [-Wmissing-prototypes]
+u16 BL_u16ReciveDataLength(){}
+    ^
+./BootLoaderApplication.h(37): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+u16 BL_u16ReciveDataLength();
+    ^
+                           void
+BootLoaderApplication.c(79): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+u16 BL_u16ReciveDataLength(){}
+                          ^
+BootLoaderApplication.c(79): warning: non-void function does not return a value [-Wreturn-type]
+u16 BL_u16ReciveDataLength(){}
+                             ^
+BootLoaderApplication.c(80): warning: unused parameter 'cpyDataStream' [-Wunused-parameter]
+void BL_voidRecievePageOfData(u8 * cpyDataStream){}  // 1024 bytes 
+                                   ^
+BootLoaderApplication.c(81): warning: no previous prototype for function 'BL_u32ReciveCRC' [-Wmissing-prototypes]
+u32 BL_u32ReciveCRC(){}
+    ^
+./BootLoaderApplication.h(39): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+u32 BL_u32ReciveCRC();
+    ^
+                    void
+BootLoaderApplication.c(81): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+u32 BL_u32ReciveCRC(){}
+                   ^
+BootLoaderApplication.c(81): warning: non-void function does not return a value [-Wreturn-type]
+u32 BL_u32ReciveCRC(){}
+                      ^
+30 warnings generated.
+compiling BootLoaderApplication.c...
 main.c(1): warning: In file included from...
 ./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
 #endif 
@@ -50,7 +182,7 @@ void UART1_voidDeInit();
                      ^
                       void
 main.c(6): warning: In file included from...
-./FPEC_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+./FPEC_interface.h(14): warning: this function declaration is not a prototype [-Wstrict-prototypes]
 void FPEC_voidFlashLock();
                        ^
                         void
@@ -71,25 +203,239 @@ main.c(23): warning: binary integer literals are a GNU extension [-Wgnu-binary-l
         GPIO_voidInitPortPinDirection(PORTA  , 9  , 0b1001);      // TX PIN
                                                     ^
 main.c(24): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-        GPIO_voidInitPortPinDirection(PORTA  , 10 , 0b0100);      // RX PIN
+        GPIO_voidInitPortPinDirection(PORTA  , 10 , 0b0100);            // RX PIN
                                                     ^
-main.c(34): warning: implicit declaration of function 'BL_voidWriteBranchingCondition' is invalid in C99 [-Wimplicit-function-declaration]
-        BL_voidWriteBranchingCondition('A');
+main.c(26): warning: implicit declaration of function 'BL_voidWriteBranchingCondition' is invalid in C99 [-Wimplicit-function-declaration]
+        BL_voidWriteBranchingCondition('B');
         ^
-main.c(35): warning: implicit declaration of function 'BL_u8CheckBranchingCondition' is invalid in C99 [-Wimplicit-function-declaration]
-        volatile u16 BC =  BL_u8CheckBranchingCondition();
-                           ^
-main.c(35): warning: implicit conversion loses integer precision: 'int' to 'u16' (aka 'unsigned short') [-Wimplicit-int-conversion]
-        volatile u16 BC =  BL_u8CheckBranchingCondition();
-                     ~~    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-main.c(35): warning: unused variable 'BC' [-Wunused-variable]
-        volatile u16 BC =  BL_u8CheckBranchingCondition();
-                     ^
-main.c(40): warning: 'return' will never be executed [-Wunreachable-code-return]
+main.c(27): warning: implicit declaration of function 'BL_u8CheckBranchingCondition' is invalid in C99 [-Wimplicit-function-declaration]
+        volatile u8 BC =  BL_u8CheckBranchingCondition();
+                          ^
+main.c(27): warning: implicit conversion loses integer precision: 'int' to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+        volatile u8 BC =  BL_u8CheckBranchingCondition();
+                    ~~    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.c(27): warning: unused variable 'BC' [-Wunused-variable]
+        volatile u8 BC =  BL_u8CheckBranchingCondition();
+                    ^
+main.c(34): warning: 'return' will never be executed [-Wunreachable-code-return]
         return 0;
                ^
 16 warnings generated.
 compiling main.c...
+CRC_program.c(6): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+CRC_program.c(7): warning: In file included from...
+./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
+#endif 
+       ^
+CRC_program.c(9): warning: In file included from...
+./CRC_interface.h(16): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void CRC_voidReset();
+                  ^
+                   void
+./CRC_interface.h(19): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+CRC_program.c(11): warning: In file included from...
+./CRC_config.h(17): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+CRC_program.c(42): warning: no previous prototype for function 'CRC_voidReset' [-Wmissing-prototypes]
+void CRC_voidReset()
+     ^
+./CRC_interface.h(16): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void CRC_voidReset();
+     ^
+                   void
+CRC_program.c(42): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void CRC_voidReset()
+                  ^
+7 warnings generated.
+compiling CRC_program.c...
+RCC_program.c(9): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+RCC_program.c(10): warning: In file included from...
+./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
+#endif 
+       ^
+RCC_program.c(15): warning: In file included from...
+./RCC_interface.h(87): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void RCC_voidInitSystemClock();
+                            ^
+                             void
+RCC_program.c(53): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        RCC_CR &= ~(31 << RCC_CR_HSITRIM0);         // Clear 5 trimming bits
+               ~~ ^~~~~~~~~~~~~~~~~~~~~~~~
+RCC_program.c(58): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT (RCC_CFGR , RCC_CFGR_SW0);      
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+RCC_program.c(59): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT (RCC_CFGR , RCC_CFGR_SW1);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+RCC_program.c(90): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+    RCC_CFGR |=  ( MICRO_OUTPUT_CLOCK <<  RCC_CFGR_MCO0); //Select output clock
+                   ^
+./RCC_config.h(19): note: expanded from macro 'MICRO_OUTPUT_CLOCK'
+#define MICRO_OUTPUT_CLOCK      MCO_NOCLK            
+                                ^
+./RCC_private.h(35): note: expanded from macro 'MCO_NOCLK'
+#define     MCO_NOCLK       0b000
+                            ^
+RCC_program.c(20): warning: no previous prototype for function 'RCC_voidInitSystemClock' [-Wmissing-prototypes]
+void RCC_voidInitSystemClock(){
+     ^
+./RCC_interface.h(87): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void RCC_voidInitSystemClock();
+     ^
+                             void
+RCC_program.c(20): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void RCC_voidInitSystemClock(){
+                            ^
+RCC_program.c(109): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+        default:
+        ^
+RCC_program.c(133): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+        default:
+        ^
+11 warnings generated.
+compiling RCC_program.c...
+FPEC_program.c(7): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+FPEC_program.c(8): warning: In file included from...
+./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
+#endif 
+       ^
+FPEC_program.c(10): warning: In file included from...
+./FPEC_interface.h(14): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void FPEC_voidFlashLock();
+                       ^
+                        void
+FPEC_program.c(12): warning: In file included from...
+./FPEC_config.h(19): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+FPEC_program.c(37): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT(FPEC->CR,PER);
+        ^~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+FPEC_program.c(54): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT(FPEC->CR, PG);
+        ^~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+FPEC_program.c(85): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT(FPEC->CR, PER);
+        ^~~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+FPEC_program.c(101): warning: no previous prototype for function 'FPEC_voidFlashLock' [-Wmissing-prototypes]
+void FPEC_voidFlashLock(void)
+     ^
+./FPEC_interface.h(14): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void FPEC_voidFlashLock();
+     ^
+                        void
+FPEC_program.c(126): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                CLR_BIT(FPEC->CR,BSY);
+                ^~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+FPEC_program.c(122): warning: while loop has empty body [-Wempty-body]
+        while (GET_BIT(FPEC->SR,BSY ) == 1);
+                                           ^
+FPEC_program.c(122): note: put the semicolon on a separate line to silence this warning
+FPEC_program.c(107): warning: no previous prototype for function 'FPEC_voidFlashMassErase' [-Wmissing-prototypes]
+void FPEC_voidFlashMassErase()
+     ^
+FPEC_program.c(107): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void FPEC_voidFlashMassErase()
+^
+static 
+FPEC_program.c(107): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void FPEC_voidFlashMassErase()
+                            ^
+12 warnings generated.
+compiling FPEC_program.c...
+UART_program.c(9): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+UART_program.c(10): warning: In file included from...
+./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
+#endif 
+       ^
+UART_program.c(15): warning: In file included from...
+./UART_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void UART1_voidInit();
+                   ^
+                    void
+./UART_interface.h(49): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void UART1_voidDeInit();
+                     ^
+                      void
+UART_program.c(19): warning: no previous extern declaration for non-static variable 'Transmit_idx' [-Wmissing-variable-declarations]
+u8 Transmit_idx = 0;
+   ^
+UART_program.c(19): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 Transmit_idx = 0;
+^
+UART_program.c(20): warning: no previous extern declaration for non-static variable 'Receive_idx' [-Wmissing-variable-declarations]
+u8 Receive_idx = 0;
+   ^
+UART_program.c(20): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 Receive_idx = 0;
+^
+UART_program.c(22): warning: no previous prototype for function 'UART1_voidInit' [-Wmissing-prototypes]
+void UART1_voidInit() {
+     ^
+./UART_interface.h(19): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void UART1_voidInit();
+     ^
+                    void
+UART_program.c(22): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void UART1_voidInit() {
+                   ^
+UART_program.c(42): warning: no previous prototype for function 'UART1_voidDeInit' [-Wmissing-prototypes]
+void UART1_voidDeInit() {
+     ^
+./UART_interface.h(49): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void UART1_voidDeInit();
+     ^
+                      void
+UART_program.c(42): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void UART1_voidDeInit() {
+                     ^
+UART_program.c(60): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                CLR_BIT(USART1_SR, USART_SR_TC);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+UART_program.c(72): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                CLR_BIT(USART1_SR, USART_SR_RXNE);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
+                                      ~~ ^~~~~~~~~~~~~
+12 warnings generated.
+compiling UART_program.c...
 GPIO_program.c(9): warning: In file included from...
 ./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
 #endif
@@ -181,341 +527,35 @@ GPIO_program.c(134): warning: default label in switch which covers all enumerati
     ^
 29 warnings generated.
 compiling GPIO_program.c...
-FPEC_program.c(7): warning: In file included from...
+IWDG_program.c(6): warning: In file included from...
 ./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-FPEC_program.c(8): warning: In file included from...
+IWDG_program.c(7): warning: In file included from...
 ./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
 #endif 
        ^
-FPEC_program.c(10): warning: In file included from...
-./FPEC_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void FPEC_voidFlashLock();
-                       ^
-                        void
-FPEC_program.c(12): warning: In file included from...
-./FPEC_config.h(19): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-FPEC_program.c(52): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                CLR_BIT(FPEC->CR,BSY);
-                ^~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-FPEC_program.c(34): warning: unused variable 'i' [-Wunused-variable]
-        u8 i ;
-           ^
-FPEC_program.c(84): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLR_BIT(FPEC->CR,PER);
-        ^~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-FPEC_program.c(98): warning: no previous prototype for function 'FPEC_voidFlashLock' [-Wmissing-prototypes]
-void FPEC_voidFlashLock(void)
-     ^
-./FPEC_interface.h(19): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void FPEC_voidFlashLock();
-     ^
-                        void
-FPEC_program.c(123): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                CLR_BIT(FPEC->CR,BSY);
-                ^~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-FPEC_program.c(119): warning: while loop has empty body [-Wempty-body]
-        while (GET_BIT(FPEC->SR,BSY ) == 1);
-                                           ^
-FPEC_program.c(119): note: put the semicolon on a separate line to silence this warning
-FPEC_program.c(104): warning: no previous prototype for function 'FPEC_voidFlashMassErase' [-Wmissing-prototypes]
-void FPEC_voidFlashMassErase()
-     ^
-FPEC_program.c(104): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void FPEC_voidFlashMassErase()
-^
-static 
-FPEC_program.c(104): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void FPEC_voidFlashMassErase()
-                            ^
-12 warnings generated.
-compiling FPEC_program.c...
-RCC_program.c(9): warning: In file included from...
-./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-RCC_program.c(10): warning: In file included from...
-./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
-#endif 
-       ^
-RCC_program.c(15): warning: In file included from...
-./RCC_interface.h(87): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void RCC_voidInitSystemClock();
-                            ^
-                             void
-RCC_program.c(53): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        RCC_CR &= ~(31 << RCC_CR_HSITRIM0);         // Clear 5 trimming bits
-               ~~ ^~~~~~~~~~~~~~~~~~~~~~~~
-RCC_program.c(58): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLR_BIT (RCC_CFGR , RCC_CFGR_SW0);      
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-RCC_program.c(59): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLR_BIT (RCC_CFGR , RCC_CFGR_SW1);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-RCC_program.c(90): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-    RCC_CFGR |=  ( MICRO_OUTPUT_CLOCK <<  RCC_CFGR_MCO0); //Select output clock
-                   ^
-./RCC_config.h(19): note: expanded from macro 'MICRO_OUTPUT_CLOCK'
-#define MICRO_OUTPUT_CLOCK      MCO_NOCLK            
-                                ^
-./RCC_private.h(35): note: expanded from macro 'MCO_NOCLK'
-#define     MCO_NOCLK       0b000
-                            ^
-RCC_program.c(20): warning: no previous prototype for function 'RCC_voidInitSystemClock' [-Wmissing-prototypes]
-void RCC_voidInitSystemClock(){
-     ^
-./RCC_interface.h(87): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void RCC_voidInitSystemClock();
-     ^
-                             void
-RCC_program.c(20): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void RCC_voidInitSystemClock(){
-                            ^
-RCC_program.c(109): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
-        default:
-        ^
-RCC_program.c(133): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
-        default:
-        ^
-11 warnings generated.
-compiling RCC_program.c...
-UART_program.c(9): warning: In file included from...
-./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-UART_program.c(10): warning: In file included from...
-./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
-#endif 
-       ^
-UART_program.c(15): warning: In file included from...
-./UART_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidInit();
+IWDG_program.c(9): warning: In file included from...
+./IWDG_interface.h(9): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void IWDG_voidReset();
                    ^
                     void
-./UART_interface.h(49): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidDeInit();
-                     ^
-                      void
-UART_program.c(19): warning: no previous extern declaration for non-static variable 'Transmit_idx' [-Wmissing-variable-declarations]
-u8 Transmit_idx = 0;
-   ^
-UART_program.c(19): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-u8 Transmit_idx = 0;
-^
-UART_program.c(20): warning: no previous extern declaration for non-static variable 'Receive_idx' [-Wmissing-variable-declarations]
-u8 Receive_idx = 0;
-   ^
-UART_program.c(20): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-u8 Receive_idx = 0;
-^
-UART_program.c(22): warning: no previous prototype for function 'UART1_voidInit' [-Wmissing-prototypes]
-void UART1_voidInit() {
+IWDG_program.c(11): warning: In file included from...
+./IWDG_config.h(11): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+IWDG_program.c(14): warning: no previous prototype for function 'IWDG_voidReset' [-Wmissing-prototypes]
+void IWDG_voidReset()
      ^
-./UART_interface.h(19): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void UART1_voidInit();
+./IWDG_interface.h(9): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void IWDG_voidReset();
      ^
                     void
-UART_program.c(22): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void UART1_voidInit() {
+IWDG_program.c(14): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void IWDG_voidReset()
                    ^
-UART_program.c(42): warning: no previous prototype for function 'UART1_voidDeInit' [-Wmissing-prototypes]
-void UART1_voidDeInit() {
-     ^
-./UART_interface.h(49): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void UART1_voidDeInit();
-     ^
-                      void
-UART_program.c(42): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void UART1_voidDeInit() {
-                     ^
-UART_program.c(60): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                CLR_BIT(USART1_SR, USART_SR_TC);
-                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-UART_program.c(72): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                CLR_BIT(USART1_SR, USART_SR_RXNE);
-                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= ~(1 << (BIT)) 
-                                      ~~ ^~~~~~~~~~~~~
-12 warnings generated.
-compiling UART_program.c...
-CRC_program.c(6): warning: In file included from...
-./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-CRC_program.c(7): warning: In file included from...
-./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
-#endif 
-       ^
-CRC_program.c(9): warning: In file included from...
-./CRC_interface.h(16): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void CRC_voidReset();
-                  ^
-                   void
-./CRC_interface.h(19): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-CRC_program.c(11): warning: In file included from...
-./CRC_config.h(17): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-CRC_program.c(42): warning: no previous prototype for function 'CRC_voidReset' [-Wmissing-prototypes]
-void CRC_voidReset()
-     ^
-./CRC_interface.h(16): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void CRC_voidReset();
-     ^
-                   void
-CRC_program.c(42): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void CRC_voidReset()
-                  ^
-7 warnings generated.
-compiling CRC_program.c...
-BootLoaderApplication.c(6): warning: In file included from...
-./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-BootLoaderApplication.c(7): warning: In file included from...
-./BIT_MATH.h(15): warning: no newline at end of file [-Wnewline-eof]
-#endif 
-       ^
-BootLoaderApplication.c(9): warning: In file included from...
-./FPEC_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void FPEC_voidFlashLock();
-                       ^
-                        void
-BootLoaderApplication.c(10): warning: In file included from...
-./CRC_interface.h(16): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void CRC_voidReset();
-                  ^
-                   void
-./CRC_interface.h(19): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-BootLoaderApplication.c(11): warning: In file included from...
-./UART_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidInit();
-                   ^
-                    void
-./UART_interface.h(49): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidDeInit();
-                     ^
-                      void
-BootLoaderApplication.c(13): warning: In file included from...
-./BootLoaderApplication.h(27): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void BL_voidProcessPayLoadMain();
-                              ^
-                               void
-./BootLoaderApplication.h(29): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-u8 BL_u8CheckBranchingCondition();
-                               ^
-                                void
-./BootLoaderApplication.h(33): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void BL_voidSoftReset();
-                     ^
-                      void
-./BootLoaderApplication.h(37): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-u16 BL_u16ReciveDataLength();
-                          ^
-                           void
-./BootLoaderApplication.h(39): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-u32 BL_u32ReciveCRC();
-                   ^
-                    void
-./BootLoaderApplication.h(42): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-BootLoaderApplication.c(15): warning: no previous prototype for function 'BL_voidProcessPayLoadMain' [-Wmissing-prototypes]
-void BL_voidProcessPayLoadMain(){}
-     ^
-./BootLoaderApplication.h(27): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void BL_voidProcessPayLoadMain();
-     ^
-                               void
-BootLoaderApplication.c(15): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void BL_voidProcessPayLoadMain(){}
-                              ^
-BootLoaderApplication.c(20): warning: implicit conversion loses integer precision: 'u16' (aka 'unsigned short') to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
-    return BC_return;
-    ~~~~~~ ^~~~~~~~~
-BootLoaderApplication.c(17): warning: no previous prototype for function 'BL_u8CheckBranchingCondition' [-Wmissing-prototypes]
-u8 BL_u8CheckBranchingCondition(){
-   ^
-./BootLoaderApplication.h(29): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-u8 BL_u8CheckBranchingCondition();
-   ^
-                                void
-BootLoaderApplication.c(17): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-u8 BL_u8CheckBranchingCondition(){
-                               ^
-BootLoaderApplication.c(53): warning: unused parameter 'cpyDataLength' [-Wunused-parameter]
-void BL_voidValidateCRCFromFlash(u16 cpyDataLength , u32 cpyCRCValue){}
-                                     ^
-BootLoaderApplication.c(53): warning: unused parameter 'cpyCRCValue' [-Wunused-parameter]
-void BL_voidValidateCRCFromFlash(u16 cpyDataLength , u32 cpyCRCValue){}
-                                                         ^
-BootLoaderApplication.c(54): warning: no previous prototype for function 'BL_voidSoftReset' [-Wmissing-prototypes]
-void BL_voidSoftReset(){}
-     ^
-./BootLoaderApplication.h(33): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void BL_voidSoftReset();
-     ^
-                      void
-BootLoaderApplication.c(54): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void BL_voidSoftReset(){}
-                     ^
-BootLoaderApplication.c(59): warning: no previous prototype for function 'BL_u16ReciveDataLength' [-Wmissing-prototypes]
-u16 BL_u16ReciveDataLength(){}
-    ^
-./BootLoaderApplication.h(37): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-u16 BL_u16ReciveDataLength();
-    ^
-                           void
-BootLoaderApplication.c(59): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-u16 BL_u16ReciveDataLength(){}
-                          ^
-BootLoaderApplication.c(59): warning: non-void function does not return a value [-Wreturn-type]
-u16 BL_u16ReciveDataLength(){}
-                             ^
-BootLoaderApplication.c(60): warning: unused parameter 'cpyDataStream' [-Wunused-parameter]
-void BL_voidRecievePageOfData(u8 * cpyDataStream){}  // 1024 bytes 
-                                   ^
-BootLoaderApplication.c(61): warning: no previous prototype for function 'BL_u32ReciveCRC' [-Wmissing-prototypes]
-u32 BL_u32ReciveCRC(){}
-    ^
-./BootLoaderApplication.h(39): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-u32 BL_u32ReciveCRC();
-    ^
-                    void
-BootLoaderApplication.c(61): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-u32 BL_u32ReciveCRC(){}
-                   ^
-BootLoaderApplication.c(61): warning: non-void function does not return a value [-Wreturn-type]
-u32 BL_u32ReciveCRC(){}
-                      ^
-29 warnings generated.
-compiling BootLoaderApplication.c...
+6 warnings generated.
+compiling IWDG_program.c...
 assembling startup_stm32f10x_md.s...
 RTE/Device/STM32F103C8/system_stm32f10x.c(167): warning: no previous extern declaration for non-static variable 'AHBPrescTable' [-Wmissing-variable-declarations]
 __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
@@ -526,11 +566,9 @@ __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9}
 1 warning generated.
 compiling system_stm32f10x.c...
 linking...
-.\Objects\BootLoader-bin.axf: Error: L6218E: Undefined symbol IWDG_voidReset (referred from main.o).
-Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-".\Objects\BootLoader-bin.axf" - 1 Error(s), 117 Warning(s).
+Program Size: Code=1620 RO-data=252 RW-data=0 ZI-data=1632  
+FromELF: creating hex file...
+".\Objects\BootLoader-bin.axf" - 0 Error(s), 124 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -549,19 +587,18 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   .\RTE\Device\STM32F103C8
   .\RTE\_Target_1
-  C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
-  C:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+  C:\Users\poppr\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\poppr\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
       Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\system_stm32f10x.c
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-Target not created.
 Build Time Elapsed:  00:00:03
 </pre>
 </body>

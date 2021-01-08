@@ -6,6 +6,7 @@
 ".\objects\uart_program.o"
 ".\objects\crc_program.o"
 ".\objects\bootloaderapplication.o"
+".\objects\iwdg_program.o"
 ".\objects\startup_stm32f10x_md.o"
 ".\objects\system_stm32f10x.o"
 --strict --scatter ".\Objects\BootLoader-bin.sct"

@@ -9,14 +9,29 @@
 #include "FPEC_interface.h"
 #include "CRC_interface.h"
 #include "UART_interface.h"
+#include "IWDG_interface.h"
 
 #include "BootLoaderApplication.h"
 
 void BL_voidProcessPayLoadMain(){}
 
 u8 BL_u8CheckBranchingCondition(){
-    u16 BC_return ; 
-    BC_return = FPEC_u16ReadHalfWord(CONDITION_PAGE , 0);
+    u16 BC_memo;
+    u8 BC_return;  
+    BC_memo = FPEC_u16ReadHalfWord(CONDITION_PAGE , 0);
+    switch (BC_memo)
+    {
+    case 0x1111:
+      BC_return = 'A';
+      break;
+    case 0x2222:
+      BC_return = 'B';
+      break;
+    default: 
+      /* Error Shouldn't be here */ 
+      BC_return = 'F';  // MEMO NOT WRITTEN 
+      break;
+    }
     return BC_return;
 }
 
@@ -39,19 +54,24 @@ void BL_voidWriteBranchingCondition(u16 cpyBC)
         Data = 0x2222;
         break;
     default:
-        Data = 0x3333; 
+        Data = 0xFFFF; 
         break;
     }
 		
-		FPEC_voidFlashWrite(Data , CONDITION_PAGE , 2 ,BC_OFFSET );
-
-    FPEC_voidFlashWrite(DataLen , CONDITION_PAGE , 2 , DATA_LEN_OFFSET );
-    FPEC_voidFlashWrite(CRCValLOW , CONDITION_PAGE , 2 , CRC_OFFSET );
-    FPEC_voidFlashWrite(CRCValHigh , CONDITION_PAGE , 2 ,CRC_OFFSET+0x02);
+		FPEC_voidFlashWrite(&Data       , CONDITION_PAGE , 1 , BC_OFFSET );
+    FPEC_voidFlashWrite(&DataLen    , CONDITION_PAGE , 1 , DATA_LEN_OFFSET );
+    FPEC_voidFlashWrite(&CRCValLOW  , CONDITION_PAGE , 1 , CRC_OFFSET );
+    FPEC_voidFlashWrite(&CRCValHigh , CONDITION_PAGE , 1 , CRC_OFFSET+0x02);
 }
 
+void BL_voidSoftReset()
+{
+  IWDG_voidReset();
+}
+/***
+ * TO DO
+ ***/
 void BL_voidValidateCRCFromFlash(u16 cpyDataLength , u32 cpyCRCValue){}
-void BL_voidSoftReset(){}
 
 
 /********** Private functions **************/

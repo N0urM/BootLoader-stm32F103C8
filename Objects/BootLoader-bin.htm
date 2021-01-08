@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\BootLoader-bin.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\BootLoader-bin.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6150002: Last Updated: Thu Jan  7 16:32:56 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6150002: Last Updated: Fri Jan  8 21:40:12 2021
 <BR><P>
 <H3>Maximum Stack Usage =         40 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; BL_voidWriteBranchingCondition &rArr; FPEC_u16ReadHalfWord
+__rt_entry_main &rArr; main &rArr; BL_voidWriteBranchingCondition &rArr; FPEC_voidFlashPageErase &rArr; FPEC_u16ReadHalfWord
 <P>
 <H3>
 Functions with no stack information
@@ -199,7 +199,7 @@ Global Symbols
 
 <P><STRONG><a name="[3e]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; BL_voidWriteBranchingCondition &rArr; FPEC_u16ReadHalfWord
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; BL_voidWriteBranchingCondition &rArr; FPEC_voidFlashPageErase &rArr; FPEC_u16ReadHalfWord
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -467,7 +467,7 @@ Global Symbols
 
 <P><STRONG><a name="[7e]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[48]"></a>BL_u8CheckBranchingCondition</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, bootloaderapplication.o(.text.BL_u8CheckBranchingCondition))
+<P><STRONG><a name="[48]"></a>BL_u8CheckBranchingCondition</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, bootloaderapplication.o(.text.BL_u8CheckBranchingCondition))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = BL_u8CheckBranchingCondition &rArr; FPEC_u16ReadHalfWord
 </UL>
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_u16ReadHalfWord
@@ -475,8 +475,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[4a]"></a>BL_voidWriteBranchingCondition</STRONG> (Thumb, 126 bytes, Stack size 24 bytes, bootloaderapplication.o(.text.BL_voidWriteBranchingCondition))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = BL_voidWriteBranchingCondition &rArr; FPEC_u16ReadHalfWord
+<P><STRONG><a name="[4a]"></a>BL_voidWriteBranchingCondition</STRONG> (Thumb, 134 bytes, Stack size 16 bytes, bootloaderapplication.o(.text.BL_voidWriteBranchingCondition))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = BL_voidWriteBranchingCondition &rArr; FPEC_voidFlashPageErase &rArr; FPEC_u16ReadHalfWord
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidFlashWrite
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidFlashPageErase
@@ -488,7 +488,8 @@ Global Symbols
 <P><STRONG><a name="[49]"></a>FPEC_u16ReadHalfWord</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, fpec_program.o(.text.FPEC_u16ReadHalfWord))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = FPEC_u16ReadHalfWord
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteBranchingCondition
+<BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidFlashPageErase
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteBranchingCondition
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_u8CheckBranchingCondition
 </UL>
 
@@ -496,12 +497,16 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[4b]"></a>FPEC_voidFlashPageErase</STRONG> (Thumb, 102 bytes, Stack size 0 bytes, fpec_program.o(.text.FPEC_voidFlashPageErase))
-<BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteBranchingCondition
+<P><STRONG><a name="[4b]"></a>FPEC_voidFlashPageErase</STRONG> (Thumb, 120 bytes, Stack size 8 bytes, fpec_program.o(.text.FPEC_voidFlashPageErase))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = FPEC_voidFlashPageErase &rArr; FPEC_u16ReadHalfWord
+</UL>
+<BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_u16ReadHalfWord
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteBranchingCondition
 </UL>
 
-<P><STRONG><a name="[4c]"></a>FPEC_voidFlashWrite</STRONG> (Thumb, 64 bytes, Stack size 4 bytes, fpec_program.o(.text.FPEC_voidFlashWrite))
-<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = FPEC_voidFlashWrite
+<P><STRONG><a name="[4c]"></a>FPEC_voidFlashWrite</STRONG> (Thumb, 118 bytes, Stack size 12 bytes, fpec_program.o(.text.FPEC_voidFlashWrite))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = FPEC_voidFlashWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteBranchingCondition
 </UL>
@@ -532,7 +537,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[3f]"></a>main</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = main &rArr; BL_voidWriteBranchingCondition &rArr; FPEC_u16ReadHalfWord
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = main &rArr; BL_voidWriteBranchingCondition &rArr; FPEC_voidFlashPageErase &rArr; FPEC_u16ReadHalfWord
 </UL>
 <BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_voidInit
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_voidInitSystemClock
