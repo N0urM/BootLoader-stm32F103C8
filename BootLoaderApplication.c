@@ -13,7 +13,89 @@
 
 #include "BootLoaderApplication.h"
 
-void BL_voidProcessPayLoadMain(void){}
+
+void JumpToApp(void)
+{
+	#define SCB_VTOR   *((volatile u32*)0xE000ED08)
+
+	SCB_VTOR = APP_STARTING_ADDRESS;
+
+	addr_to_call = *(Function_t*)(APP_STARTING_ADDRESS + 4);
+	addr_to_call();
+}
+
+void BL_voidProcessPayLoadMain(void)
+{
+
+	volatile u16 local_u16datalen=0;
+	volatile u16 local_u16RecievedData =0;
+	volatile u16 CRCValLOW = 0;
+	volatile u16 CRCValHigh = 0;
+	volatile u32 local_u32CRCValue=0;
+	volatile u8 local_u8DataStream[1024]={0};
+	
+	//check branching condition 
+	if (BL_u8CheckBranchingCondition() == 'A')	// App exists and no update available
+	{
+		// Read CRC and dataLen from Flash
+		local_u16datalen = FPEC_u16ReadHalfWord(CONDITION_PAGE , DATA_LEN_OFFSET);
+		CRCValLOW  = FPEC_u16ReadHalfWord(CONDITION_PAGE , CRC_OFFSET);
+    	CRCValHigh = FPEC_u16ReadHalfWord(CONDITION_PAGE , CRC_OFFSET+0x02); 	
+		local_u32CRCValue = CRCValLOW + (u32)(CRCValHigh<<16);
+		
+		// Validate CRC Value of data
+		if (BL_u8ValidateCRCFromFlash(local_u16datalen , local_u32CRCValue))	
+		{
+			JumpToApp();														// If validation sucess, jump to app.
+		}
+		else 
+		{
+			// Change Branch condition 
+			BL_voidWriteConditionPage('B' , local_u16datalen , local_u32CRCValue);
+
+		}
+	}
+	else 																				// Add doesn't exist or update available
+	{
+
+		// Erase App Area
+		FPEC_voidEraseAppArea();
+	
+		// Recive new Data Length
+		local_u16datalen = BL_u16ReciveDataLength();
+		
+		// Recive new data CRC Value 
+		local_u32CRCValue = BL_u32ReciveCRC();
+		
+		// Recieve a chunk of data, write, and repeat till end.
+		while(local_u16datalen - local_u16RecievedData > 1023)
+		{
+				BL_voidRecievePageOfData(local_u8DataStream , 1024);
+				FPEC_voidFlashWrite(local_u8DataStream , APP_PAGE , 1024 , local_u16RecievedData );
+				local_u16RecievedData +=1024;
+		}
+		
+		// Recieve last chunck 
+		BL_voidRecievePageOfData(local_u8DataStream , (local_u16datalen - local_u16RecievedData) );
+		FPEC_voidFlashWrite(local_u8DataStream , APP_PAGE , (local_u16datalen - local_u16RecievedData)  , local_u16RecievedData );
+
+		// Validate CRC 
+		if(BL_u8ValidateCRCFromFlash(local_u16datalen , local_u32CRCValue))
+		{	
+				// Change Branch condition 
+				BL_voidWriteConditionPage('A' , local_u16datalen , local_u32CRCValue);
+		}
+		else 
+		{
+				// Change Branch condition 
+				BL_voidWriteConditionPage('B' , local_u16datalen , local_u32CRCValue);
+		}
+	
+	}// END IF
+
+	BL_voidSoftReset();							// Soft reset.
+
+}// END FUNCTION
 
 u8 BL_u8CheckBranchingCondition(void)
 {
@@ -36,33 +118,37 @@ u8 BL_u8CheckBranchingCondition(void)
     return BC_return;
 }
 
-void BL_voidWriteBranchingCondition(u16 cpyBC)
+void BL_voidWriteConditionPage(u16 cpyBC , u16 cpy_DataLen , u32 cpy_CRC)
 {
     // 'A' : App
     // 'B' : BootLoader
-    u16 CRCValLOW  = FPEC_u16ReadHalfWord(CONDITION_PAGE , CRC_OFFSET);
-    u16 CRCValHigh = FPEC_u16ReadHalfWord(CONDITION_PAGE , CRC_OFFSET+0x02); 
-    u16 DataLen = FPEC_u16ReadHalfWord(CONDITION_PAGE , DATA_LEN_OFFSET);
-		volatile u16 Data;
-    FPEC_voidFlashPageErase(CONDITION_PAGE);
+
+	volatile u8 Data[2];
+	volatile u16 local_CRCLOW  = (u16) (cpy_CRC & 0xFFFF);
+	volatile u16 local_CRCHigh = (u16) ((cpy_CRC>>16) & 0xFFFF);		
+	
+	FPEC_voidFlashPageErase(CONDITION_PAGE);
 
     switch (cpyBC)
     {
     case 'A':
-				Data = 0x1111;
+				Data[0] = 0x11;
+				Data[1] = 0x11;
+		
         break;
     case 'B':
-        Data = 0x2222;
+				Data[0] = 0x22;
+				Data[1] = 0x22;
         break;
     default:
-        Data = 0xFFFF; 
+				Data[0] = 0xFF;
+				Data[1] = 0xFF;
         break;
     }
-		
-		FPEC_voidFlashWrite(&Data       , CONDITION_PAGE , 1 , BC_OFFSET );
-    FPEC_voidFlashWrite(&DataLen    , CONDITION_PAGE , 1 , DATA_LEN_OFFSET );
-    FPEC_voidFlashWrite(&CRCValLOW  , CONDITION_PAGE , 1 , CRC_OFFSET );
-    FPEC_voidFlashWrite(&CRCValHigh , CONDITION_PAGE , 1 , CRC_OFFSET+0x02);
+	FPEC_voidFlashWrite(Data       	   , CONDITION_PAGE , 2 , BC_OFFSET );
+    FPEC_voidFlashWrite(&cpy_DataLen   , CONDITION_PAGE , 2 , DATA_LEN_OFFSET );
+    FPEC_voidFlashWrite(&local_CRCLOW  , CONDITION_PAGE , 2 , CRC_OFFSET+0x02 );
+    FPEC_voidFlashWrite(&local_CRCHigh , CONDITION_PAGE , 2 , CRC_OFFSET);
 }
 
 void BL_voidSoftReset(void)
@@ -72,8 +158,10 @@ void BL_voidSoftReset(void)
 /***
  * TO DO
  ***/
-void BL_voidValidateCRCFromFlash(u16 cpyDataLength , u32 cpyCRCValue){}
+u8 BL_u8ValidateCRCFromFlash(u16 cpyDataLength , u32 cpyCRCValue)
+{
 
+}
 
 /********** Private functions **************/
 
@@ -97,6 +185,5 @@ u32 BL_u32ReciveCRC(void)
 
 void BL_voidRecievePageOfData(u8 * cpyDataStream , u8 cpyDataLength)
 {
-	UART1_voidRecieveSync(cpyDataLength  , cpyDataStream);
+		UART1_voidRecieveSync(cpyDataLength  , cpyDataStream);
 }  
-

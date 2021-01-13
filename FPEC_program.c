@@ -1,7 +1,7 @@
 /*****************************************************************************************************************/
-/* Author  : Eman Ashraf                                                                                         */
-/* version : v01                                                                                                 */
-/* Date    : 11\11\2020                                                                                          */ 
+/* Author  : Eman  / Nourhan                                                                                        */
+/* version : v02                                                                                                 */
+/* Date    : 12\1\2021                                                                                          */ 
 /*****************************************************************************************************************/
 
 #include "STD_TYPES.h"
@@ -27,10 +27,10 @@ u16 FPEC_u16ReadHalfWord(u8 cpyPage , u8 offset)
 }
 
 
-void FPEC_voidFlashWrite(u16 * Copy_u16Data , u8 cpyPage , u8 Copy_u8DataArrayLength , u8 offset)
-
+void FPEC_voidFlashWrite(u8 * Copy_u8Data , u8 cpyPage , u8 Copy_u8DataArrayLength , u16 offset)
 {
 	u8 i ;
+	u16 local_u16Data;
 	volatile u32 local_u32address =(u32) (cpyPage * 1024) + 0x08000000 + offset;
 	
 	while (GET_BIT(FPEC->SR,BSY) == 1);
@@ -39,10 +39,11 @@ void FPEC_voidFlashWrite(u16 * Copy_u16Data , u8 cpyPage , u8 Copy_u8DataArrayLe
 	// Write Flash Programming 
 	SET_BIT(FPEC->CR,PG);	
 	
-	for (i=0 ; i< Copy_u8DataArrayLength ; i++)
+	for (i=0 ; i<Copy_u8DataArrayLength-1 ; i+=2)
 	{	
 		// Half word operation 
-		*((volatile u16*)local_u32address) = *(Copy_u16Data+i);
+		local_u16Data = ( (u16)Copy_u8Data[i] ) + ( (u16)Copy_u8Data[i+1]<<8 ); 
+		*((volatile u16*)local_u32address) = local_u16Data;
 		local_u32address +=2;
 		// wait busy flag and End of operation
 		while (GET_BIT(FPEC->SR,BSY ) == 1);
