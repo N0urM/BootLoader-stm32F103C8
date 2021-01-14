@@ -14,6 +14,9 @@
 #define DATA_LEN_OFFSET     		0x02
 #define CRC_OFFSET          		0x04
 #define APP_STARTING_ADDRESS		0x08001000
+
+#define IMAGE_VERIFIED      1
+#define	IMAGE_NOT_VERIFIED  0
 typedef void (*Function_t)(void);
 Function_t addr_to_call = 0;
 
@@ -27,11 +30,11 @@ Function_t addr_to_call = 0;
   * @retval none
   */
 void BL_voidProcessPayLoadMain(void);
-
-u8 BL_u8CheckBranchingCondition(void);
 void BL_voidWriteConditionPage(u16 cpyBC , u16 cpy_DataLen , u32 cpy_CRC);
+u8 BL_u8CheckBranchingCondition(void);
+
 void BL_voidWriteCRC(u32 cpyCRC);
-u8 BL_u8ValidateCRCFromFlash(u16 cpyDataLength , u32 cpyCRCValue); 
+u8 BL_u8ValidateCRCFromFlash(u16 cpyDataLength , u32 cpyCRCValue);
 void BL_voidSoftReset(void);
 
 /********** Private functions **************/

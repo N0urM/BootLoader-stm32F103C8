@@ -13,5 +13,6 @@ void FPEC_voidFlashPageErase(u8 Copy_u8PageNumber);
 void FPEC_voidEraseAppArea(void);
 void FPEC_voidFlashLock();
 
+u32  FPEC_u32ReadWord(u8 copyPage , u8 offset1);
 
 #endif

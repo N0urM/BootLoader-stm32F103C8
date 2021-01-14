@@ -27,6 +27,20 @@ u16 FPEC_u16ReadHalfWord(u8 cpyPage , u8 offset)
 }
 
 
+u32  FPEC_u32ReadWord(u8 copyPage , u8 offset1)
+
+{
+
+
+	volatile u32 val=0;
+	val=FPEC_u16ReadHalfWord( copyPage ,  offset1);
+	val=val<<16;
+	val |=FPEC_u16ReadHalfWord( copyPage ,  offset1+2);
+
+	return val ;
+}
+
+
 void FPEC_voidFlashWrite(u8 * Copy_u8Data , u8 cpyPage , u8 Copy_u8DataArrayLength , u16 offset)
 {
 	u8 i ;

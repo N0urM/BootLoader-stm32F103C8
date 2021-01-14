@@ -158,10 +158,31 @@ void BL_voidSoftReset(void)
 /***
  * TO DO
  ***/
+
 u8 BL_u8ValidateCRCFromFlash(u16 cpyDataLength , u32 cpyCRCValue)
 {
+	u32 localu32Data ;
+   u16 i;
+	u32 localcrc ;
+for(i=0;i<cpyDataLength;i+=4 )
+{
+	localu32Data=FPEC_u32ReadWord(APP_PAGE,i);
+	CRC_u32Claculate2(localu32Data);
 
 }
+
+localcrc= CRC_u32GetCrc();
+if (cpyCRCValue==localcrc )
+{
+	return IMAGE_VERIFIED ;
+}
+else
+{
+	return IMAGE_NOT_VERIFIED ;
+}
+
+}
+
 
 /********** Private functions **************/
 
