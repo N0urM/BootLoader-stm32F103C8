@@ -16,8 +16,7 @@
 #include "UART_private.h"
 #include "UART_config.h"
 
-u8 Transmit_idx = 0;
-u8 Receive_idx = 0;
+
 
 void UART1_voidInit() {
 

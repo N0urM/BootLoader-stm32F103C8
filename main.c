@@ -11,11 +11,12 @@
 #define MAX_RECIEVED_DATA	2
 int main() {
 
-	RCC_voidInitSystemClock();								// Init System Clock
+	RCC_voidInitSystemClock();														// Init System Clock
 	RCC_voidEnableClock(t_APB2 , RCC_APB2ENR_USART1EN);		// Init Clock for UART1
 	RCC_voidEnableClock(t_APB2, RCC_APB2ENR_IOPAEN);  		// Init Clock PortA
-	RCC_voidEnableClock(t_AHB , RCC_AHBENR_FLITFEN);		// Init Clock for Flash Drive
-
+	RCC_voidEnableClock(t_AHB , RCC_AHBENR_FLITFEN);			// Init Clock for Flash Drive
+	RCC_voidEnableClock(t_AHB , RCC_AHBENR_CRCEN);				// Init Clocl for CRC module
+	
 	FPEC_voidFlashInit();										// Init Flash Driver
 	UART1_voidInit();										    // Init UART
 
@@ -23,9 +24,9 @@ int main() {
 	GPIO_voidInitPortPinDirection(PORTA  , 9  , 0b1001);      // TX PIN
 	GPIO_voidInitPortPinDirection(PORTA  , 10 , 0b0100);	  	// RX PIN
 
-	BL_voidWriteConditionPage('B' , 0x00  , 0x00);
-	//volatile u8 BC =  BL_u8CheckBranchingCondition();
-	//volatile u8 DataPage[100] = {0};
+	// BL_voidWriteConditionPage('A' , 0x1626  , 0xD5ED80C3);
+	// volatile u8 BC =  BL_u8CheckBranchingCondition();
+	// volatile u8 DataPage[100] = {0};
 	//BL_voidRecievePageOfData(DataPage , 100);
 	BL_voidProcessPayLoadMain();
 	while (1)

@@ -13,7 +13,7 @@
 #define BC_OFFSET           		0x00
 #define DATA_LEN_OFFSET     		0x02
 #define CRC_OFFSET          		0x04
-#define APP_STARTING_ADDRESS		0x08001000
+#define APP_STARTING_ADDRESS		0x08001400
 
 #define IMAGE_VERIFIED      1
 #define	IMAGE_NOT_VERIFIED  0
@@ -40,7 +40,6 @@ void BL_voidSoftReset(void);
 /********** Private functions **************/
 
 u16 BL_u16ReciveDataLength(void);
-void BL_voidRecievePageOfData(u8 * cpyDataStream , u8 cpyDataLength);
 u32 BL_u32ReciveCRC(void);
 void JumpToApp(void);
 

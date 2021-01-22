@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\BootLoader-bin.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\BootLoader-bin.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6150002: Last Updated: Thu Jan 14 14:18:59 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6150002: Last Updated: Fri Jan 22 16:33:28 2021
 <BR><P>
-<H3>Maximum Stack Usage =       1096 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       1128 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; BL_voidProcessPayLoadMain &rArr; BL_u8ValidateCRCFromFlash &rArr; FPEC_u32ReadWord &rArr; FPEC_u16ReadHalfWord
 <P>
@@ -198,7 +198,7 @@ Global Symbols
 <P><STRONG><a name="[82]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[3e]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1096 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1128 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; BL_voidProcessPayLoadMain &rArr; BL_u8ValidateCRCFromFlash &rArr; FPEC_u32ReadWord &rArr; FPEC_u16ReadHalfWord
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -503,8 +503,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidProcessPayLoadMain
 </UL>
 
-<P><STRONG><a name="[4d]"></a>BL_u8ValidateCRCFromFlash</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, bootloaderapplication.o(.text.BL_u8ValidateCRCFromFlash))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = BL_u8ValidateCRCFromFlash &rArr; FPEC_u32ReadWord &rArr; FPEC_u16ReadHalfWord
+<P><STRONG><a name="[4d]"></a>BL_u8ValidateCRCFromFlash</STRONG> (Thumb, 80 bytes, Stack size 32 bytes, bootloaderapplication.o(.text.BL_u8ValidateCRCFromFlash))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = BL_u8ValidateCRCFromFlash &rArr; FPEC_u32ReadWord &rArr; FPEC_u16ReadHalfWord
 </UL>
 <BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CRC_u32GetCrc
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CRC_u32Claculate2
@@ -513,31 +513,24 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidProcessPayLoadMain
 </UL>
 
-<P><STRONG><a name="[51]"></a>BL_voidProcessPayLoadMain</STRONG> (Thumb, 312 bytes, Stack size 1048 bytes, bootloaderapplication.o(.text.BL_voidProcessPayLoadMain))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1096<LI>Call Chain = BL_voidProcessPayLoadMain &rArr; BL_u8ValidateCRCFromFlash &rArr; FPEC_u32ReadWord &rArr; FPEC_u16ReadHalfWord
+<P><STRONG><a name="[51]"></a>BL_voidProcessPayLoadMain</STRONG> (Thumb, 396 bytes, Stack size 1064 bytes, bootloaderapplication.o(.text.BL_voidProcessPayLoadMain))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1128<LI>Call Chain = BL_voidProcessPayLoadMain &rArr; BL_u8ValidateCRCFromFlash &rArr; FPEC_u32ReadWord &rArr; FPEC_u16ReadHalfWord
 </UL>
 <BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JumpToApp
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteConditionPage
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidSoftReset
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidRecievePageOfData
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_u8ValidateCRCFromFlash
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_u8CheckBranchingCondition
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_u32ReciveCRC
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_u16ReciveDataLength
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidFlashWrite
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_voidTransmitSync
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_voidRecieveSync
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidFlashWrite
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidEraseAppArea
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_u16ReadHalfWord
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteConditionPage
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[55]"></a>BL_voidRecievePageOfData</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, bootloaderapplication.o(.text.BL_voidRecievePageOfData))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = BL_voidRecievePageOfData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_voidRecieveSync
-</UL>
-<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidProcessPayLoadMain
 </UL>
 
 <P><STRONG><a name="[58]"></a>BL_voidSoftReset</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, bootloaderapplication.o(.text.BL_voidSoftReset))
@@ -551,11 +544,10 @@ Global Symbols
 <P><STRONG><a name="[57]"></a>BL_voidWriteConditionPage</STRONG> (Thumb, 110 bytes, Stack size 16 bytes, bootloaderapplication.o(.text.BL_voidWriteConditionPage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = BL_voidWriteConditionPage &rArr; FPEC_voidFlashWrite
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidFlashWrite
+<BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidFlashWrite
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidFlashPageErase
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidProcessPayLoadMain
+<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidProcessPayLoadMain
 </UL>
 
 <P><STRONG><a name="[4f]"></a>CRC_u32Claculate2</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, crc_program.o(.text.CRC_u32Claculate2))
@@ -574,7 +566,7 @@ Global Symbols
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidProcessPayLoadMain
 </UL>
 
-<P><STRONG><a name="[4e]"></a>FPEC_u32ReadWord</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, fpec_program.o(.text.FPEC_u32ReadWord))
+<P><STRONG><a name="[4e]"></a>FPEC_u32ReadWord</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, fpec_program.o(.text.FPEC_u32ReadWord))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = FPEC_u32ReadWord &rArr; FPEC_u16ReadHalfWord
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_u16ReadHalfWord
@@ -595,11 +587,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5a]"></a>FPEC_voidFlashPageErase</STRONG> (Thumb, 110 bytes, Stack size 0 bytes, fpec_program.o(.text.FPEC_voidFlashPageErase))
-<BR><BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidEraseAppArea
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteConditionPage
+<BR><BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteConditionPage
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidEraseAppArea
 </UL>
 
-<P><STRONG><a name="[56]"></a>FPEC_voidFlashWrite</STRONG> (Thumb, 124 bytes, Stack size 12 bytes, fpec_program.o(.text.FPEC_voidFlashWrite))
+<P><STRONG><a name="[55]"></a>FPEC_voidFlashWrite</STRONG> (Thumb, 124 bytes, Stack size 12 bytes, fpec_program.o(.text.FPEC_voidFlashWrite))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = FPEC_voidFlashWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteConditionPage
@@ -642,20 +634,23 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[49]"></a>UART1_voidRecieveSync</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, uart_program.o(.text.UART1_voidRecieveSync))
-<BR><BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidRecievePageOfData
-<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_u32ReciveCRC
+<BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_u32ReciveCRC
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_u16ReciveDataLength
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidProcessPayLoadMain
 </UL>
 
-<P><STRONG><a name="[3f]"></a>main</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1096<LI>Call Chain = main &rArr; BL_voidProcessPayLoadMain &rArr; BL_u8ValidateCRCFromFlash &rArr; FPEC_u32ReadWord &rArr; FPEC_u16ReadHalfWord
+<P><STRONG><a name="[56]"></a>UART1_voidTransmitSync</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, uart_program.o(.text.UART1_voidTransmitSync))
+<BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidProcessPayLoadMain
+</UL>
+
+<P><STRONG><a name="[3f]"></a>main</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main.o(.text.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1128<LI>Call Chain = main &rArr; BL_voidProcessPayLoadMain &rArr; BL_u8ValidateCRCFromFlash &rArr; FPEC_u32ReadWord &rArr; FPEC_u16ReadHalfWord
 </UL>
 <BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_voidInit
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_voidInitSystemClock
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_voidEnableClock
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_voidInitPortPinDirection
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidFlashInit
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteConditionPage
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidProcessPayLoadMain
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main

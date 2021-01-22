@@ -7,12 +7,12 @@
 #define _FPEC_INTERFACE_H
 
 void FPEC_voidFlashInit(void);
-u16 FPEC_u16ReadHalfWord(u8 cpyPage , u8 offset);
-void FPEC_voidFlashWrite(u8 * Copy_u8Data ,u8 cpyPage , u8 Copy_u8DataArrayLength , u16 offset);
+u16 FPEC_u16ReadHalfWord(u8 cpyPage , u16 offset);
+void FPEC_voidFlashWrite(u8 * Copy_u8Data ,u8 cpyPage , u16 Copy_u8DataArrayLength , u16 offset);
 void FPEC_voidFlashPageErase(u8 Copy_u8PageNumber);
 void FPEC_voidEraseAppArea(void);
-void FPEC_voidFlashLock();
+void FPEC_voidFlashLock(void);
 
-u32  FPEC_u32ReadWord(u8 copyPage , u8 offset1);
+u32  FPEC_u32ReadWord(u8 copyPage , u16 offset1);
 
 #endif

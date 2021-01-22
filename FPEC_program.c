@@ -19,31 +19,33 @@ void FPEC_voidFlashInit()
 		
 }
 
-u16 FPEC_u16ReadHalfWord(u8 cpyPage , u8 offset)
+u16 FPEC_u16ReadHalfWord(u8 cpyPage , u16 offset)
 {
 	volatile u32 local_address = (u32)(cpyPage * 1024) + 0x08000000 + offset;
 	volatile u16 val = *((volatile u16 *) local_address);
 	return val;
 }
 
-
-u32  FPEC_u32ReadWord(u8 copyPage , u8 offset1)
-
+u32  FPEC_u32ReadWord(u8 copyPage , u16 offset1)
 {
-
-
 	volatile u32 val=0;
-	val=FPEC_u16ReadHalfWord( copyPage ,  offset1);
-	val=val<<16;
-	val |=FPEC_u16ReadHalfWord( copyPage ,  offset1+2);
+	volatile u16 tmp_val ;
 
+	tmp_val=FPEC_u16ReadHalfWord( copyPage ,  offset1);
+	tmp_val = (u16) ((tmp_val&0xFF)<<8) | (u16) ((tmp_val>>8) & 0xFF);
+
+	val = ((u16)tmp_val & 0xFFFFFFFF);
+	val<<=16;
+	tmp_val = FPEC_u16ReadHalfWord( copyPage ,  offset1+2);
+	tmp_val = (u8) ((tmp_val&0xFF)<<8) | (u8) ((tmp_val>>8) & 0xFF);
+	val |= (tmp_val & 0xFFFF);
 	return val ;
 }
 
 
-void FPEC_voidFlashWrite(u8 * Copy_u8Data , u8 cpyPage , u8 Copy_u8DataArrayLength , u16 offset)
+void FPEC_voidFlashWrite(u8 * Copy_u8Data , u8 cpyPage , u16 Copy_u8DataArrayLength , u16 offset)
 {
-	u8 i ;
+	u16 i ;
 	u16 local_u16Data;
 	volatile u32 local_u32address =(u32) (cpyPage * 1024) + 0x08000000 + offset;
 	
@@ -56,7 +58,7 @@ void FPEC_voidFlashWrite(u8 * Copy_u8Data , u8 cpyPage , u8 Copy_u8DataArrayLeng
 	for (i=0 ; i<Copy_u8DataArrayLength-1 ; i+=2)
 	{	
 		// Half word operation 
-		local_u16Data = ( (u16)Copy_u8Data[i] ) + ( (u16)Copy_u8Data[i+1]<<8 ); 
+		local_u16Data = (u16)(( (u16)Copy_u8Data[i] ) + ( (u16)Copy_u8Data[i+1]<<8 )); 
 		*((volatile u16*)local_u32address) = local_u16Data;
 		local_u32address +=2;
 		// wait busy flag and End of operation
