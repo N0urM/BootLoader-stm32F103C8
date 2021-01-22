@@ -37,7 +37,7 @@ u32  FPEC_u32ReadWord(u8 copyPage , u16 offset1)
 	val = ((u16)tmp_val & 0xFFFFFFFF);
 	val<<=16;
 	tmp_val = FPEC_u16ReadHalfWord( copyPage ,  offset1+2);
-	tmp_val = (u8) ((tmp_val&0xFF)<<8) | (u8) ((tmp_val>>8) & 0xFF);
+	tmp_val = (u16) ((tmp_val&0xFF)<<8) | (u16) ((tmp_val>>8) & 0xFF);
 	val |= (tmp_val & 0xFFFF);
 	return val ;
 }
