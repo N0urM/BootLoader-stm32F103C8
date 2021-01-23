@@ -44,9 +44,7 @@ void BL_voidProcessPayLoadMain(void)
 		CRCValHigh = FPEC_u16ReadHalfWord(CONDITION_PAGE, CRC_OFFSET);
 		CRCValLOW = FPEC_u16ReadHalfWord(CONDITION_PAGE, CRC_OFFSET + 0x02);
 		local_u32CRCValue = CRCValLOW + (u32)(CRCValHigh << 16);
-	
-	//	JumpToApp(); // If validation sucess, jump to app.
-/**************/
+
 		// Validate CRC Value of data
 		if (BL_u8ValidateCRCFromFlash(local_u16datalen, local_u32CRCValue))
 		{
@@ -57,7 +55,6 @@ void BL_voidProcessPayLoadMain(void)
 			// Change Branch condition
 			BL_voidWriteConditionPage('B', local_u16datalen, local_u32CRCValue);
 		}
-/*************/
 	}
 	else // Add doesn't exist or update available
 	{
@@ -65,6 +62,9 @@ void BL_voidProcessPayLoadMain(void)
 		// Erase App Area
 		FPEC_voidEraseAppArea();
 
+		// Send Handshake msg 
+		UART1_voidTransmitSync("HS\n" , 3);
+		
 		// Recive new Data Length
 		local_u16datalen = BL_u16ReciveDataLength();
 
@@ -86,8 +86,6 @@ void BL_voidProcessPayLoadMain(void)
 		// Recieve last chunck
 		UART1_voidRecieveSync( local_u16LastDataChuckLength , local_u8DataStream);
 		FPEC_voidFlashWrite(local_u8DataStream, APP_PAGE, local_u16LastDataChuckLength , local_u16DataOffset);
-
-			BL_voidWriteConditionPage('A', local_u16datalen, local_u32CRCValue);
 	
 		// Validate CRC
 		if (BL_u8ValidateCRCFromFlash(local_u16datalen , local_u32CRCValue))
