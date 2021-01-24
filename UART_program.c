@@ -18,7 +18,7 @@
 
 
 
-void UART1_voidInit() {
+void UART1_voidInit(void) {
 
 			// Baud Rate selection 115200
 			USART1_BRR = 0x46;
@@ -38,7 +38,7 @@ void UART1_voidInit() {
 
 }
 
-void UART1_voidDeInit() {
+void UART1_voidDeInit(void) {
 
 		// Clear Baud Rate selection
 		USART1_BRR = 0;
@@ -54,20 +54,26 @@ void UART1_voidTransmitSync(u8 cpy_arr[] , u8 cpy_arrLen) {
 	u16 i = 0;
 	while (i != cpy_arrLen) 
 	{
+		// assign dta to Data Register
 		USART1_DR = cpy_arr[i];
+		
+		// Wait for Flag
 		while (GET_BIT (USART1_SR , USART_SR_TC) == 0);
+		
+		// Clear Flag
 		CLR_BIT(USART1_SR, USART_SR_TC);
 		i++;
 	}
 }
 
-void UART1_voidRecieveSync(u16 cpy_data_length,
-		u8 * DataRecieved) {
-
+void UART1_voidRecieveSync(u16 cpy_data_length, u8 * DataRecieved) 
+{
 	u16 local_idx = 0;
-	while (local_idx < cpy_data_length) {
-		while (GET_BIT (USART1_SR , USART_SR_RXNE) == 0)
-			;
+	// This function will halt the cpu operation untill the speicifed
+	// data length is recieved. 
+	while (local_idx < cpy_data_length) 
+	{
+		while (GET_BIT (USART1_SR , USART_SR_RXNE) == 0);
 		CLR_BIT(USART1_SR, USART_SR_RXNE);
 		DataRecieved[local_idx++] = 0xFF & USART1_DR;
 	}

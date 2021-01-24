@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\BootLoader-bin.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\BootLoader-bin.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6150002: Last Updated: Sat Jan 23 17:51:40 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6150002: Last Updated: Sun Jan 24 18:59:11 2021
 <BR><P>
 <H3>Maximum Stack Usage =       1128 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -513,7 +513,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidProcessPayLoadMain
 </UL>
 
-<P><STRONG><a name="[51]"></a>BL_voidProcessPayLoadMain</STRONG> (Thumb, 392 bytes, Stack size 1064 bytes, bootloaderapplication.o(.text.BL_voidProcessPayLoadMain))
+<P><STRONG><a name="[51]"></a>BL_voidProcessPayLoadMain</STRONG> (Thumb, 400 bytes, Stack size 1064 bytes, bootloaderapplication.o(.text.BL_voidProcessPayLoadMain))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1128<LI>Call Chain = BL_voidProcessPayLoadMain &rArr; BL_u8ValidateCRCFromFlash &rArr; FPEC_u32ReadWord &rArr; FPEC_u16ReadHalfWord
 </UL>
 <BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
@@ -591,7 +591,7 @@ Global Symbols
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FPEC_voidEraseAppArea
 </UL>
 
-<P><STRONG><a name="[56]"></a>FPEC_voidFlashWrite</STRONG> (Thumb, 124 bytes, Stack size 12 bytes, fpec_program.o(.text.FPEC_voidFlashWrite))
+<P><STRONG><a name="[56]"></a>FPEC_voidFlashWrite</STRONG> (Thumb, 172 bytes, Stack size 12 bytes, fpec_program.o(.text.FPEC_voidFlashWrite))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = FPEC_voidFlashWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_voidWriteConditionPage

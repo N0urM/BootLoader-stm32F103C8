@@ -14,6 +14,10 @@
 #include "BootLoaderApplication.h"
 
 #define PAGE_SIZE			1024
+
+typedef void (*Function_t)(void);
+Function_t addr_to_call = 0;
+
 void JumpToApp(void)
 {
 #define SCB_VTOR *((volatile u32 *)0xE000ED08)
@@ -86,19 +90,20 @@ void BL_voidProcessPayLoadMain(void)
 		// Recieve last chunck
 		UART1_voidRecieveSync( local_u16LastDataChuckLength , local_u8DataStream);
 		FPEC_voidFlashWrite(local_u8DataStream, APP_PAGE, local_u16LastDataChuckLength , local_u16DataOffset);
-	
+		
 		// Validate CRC
 		if (BL_u8ValidateCRCFromFlash(local_u16datalen , local_u32CRCValue))
 		{
+			UART1_voidTransmitSync("ok\n" , 3);
 			// Change Branch condition
 			BL_voidWriteConditionPage('A', local_u16datalen, local_u32CRCValue);
-			UART1_voidTransmitSync("ok\n" , 3);
 		}
 		else
 		{
+			UART1_voidTransmitSync("no\n" , 3);
 			// Change Branch condition
 			BL_voidWriteConditionPage('B', local_u16datalen, local_u32CRCValue);
-			UART1_voidTransmitSync("no\n" , 3);
+
 		}
 
 	} // END IF
@@ -110,6 +115,7 @@ u8 BL_u8CheckBranchingCondition(void)
 {
 	u16 BC_memo;
 	u8 BC_return;
+	// Read Stored Brancing Condition
 	BC_memo = FPEC_u16ReadHalfWord(CONDITION_PAGE, 0);
 	switch (BC_memo)
 	{
@@ -124,7 +130,7 @@ u8 BL_u8CheckBranchingCondition(void)
 		BC_return = 'F'; // MEMO NOT WRITTEN
 		break;
 	}
-	return BC_return;
+	return BC_return; // APP, Bootloader, or Empty Flash
 }
 
 void BL_voidWriteConditionPage(u16 cpyBC, u16 cpy_DataLen, u32 cpy_CRC)
@@ -162,6 +168,7 @@ void BL_voidWriteConditionPage(u16 cpyBC, u16 cpy_DataLen, u32 cpy_CRC)
 
 void BL_voidSoftReset(void)
 {
+	// Watchdog timer rest.
 	IWDG_voidReset();
 }
 
@@ -170,12 +177,14 @@ u8 BL_u8ValidateCRCFromFlash(u16 cpyDataLength, u32 cpyCRCValue)
 	volatile u32 localu32Data;
 	volatile u16 i;
 	volatile u32 localcrc;
+	// HW CRC module check of the app area 
 	for (i = 0; i < cpyDataLength; i += 4)
 	{
-		localu32Data = FPEC_u32ReadWord(APP_PAGE, i); // i is u16 & offset is u8. No mechanism to flip pages.
+		localu32Data = FPEC_u32ReadWord(APP_PAGE, i); 
 		CRC_u32Claculate2(localu32Data);
 	}
-
+	
+	// Get final CRC value at the end of validation
 	localcrc = CRC_u32GetCrc();
 	if (cpyCRCValue == localcrc)
 	{

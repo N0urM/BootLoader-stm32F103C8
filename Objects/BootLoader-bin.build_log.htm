@@ -27,6 +27,46 @@ Project File Date:  01/16/2021
 <h2>Output:</h2>
 *** Using Compiler 'V6.15', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
+main.c(2): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(4): warning: In file included from...
+./RCC_interface.h(87): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void RCC_voidInitSystemClock();
+                            ^
+                             void
+main.c(8): warning: In file included from...
+./CRC_interface.h(16): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void CRC_voidReset();
+                  ^
+                   void
+./CRC_interface.h(20): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+u32 CRC_u32GetCrc();
+                 ^
+                  void
+./CRC_interface.h(22): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(9): warning: In file included from...
+./IWDG_interface.h(9): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void IWDG_voidReset();
+                   ^
+                    void
+main.c(23): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        GPIO_voidInitPortPinDirection(PORTA  , 9  , 0b1001);      // TX PIN
+                                                    ^
+main.c(24): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        GPIO_voidInitPortPinDirection(PORTA  , 10 , 0b0100);            // RX PIN
+                                                    ^
+main.c(27): warning: implicit declaration of function 'BL_voidProcessPayLoadMain' is invalid in C99 [-Wimplicit-function-declaration]
+        BL_voidProcessPayLoadMain();
+        ^
+main.c(31): warning: 'return' will never be executed [-Wunreachable-code-return]
+        return 0;
+               ^
+10 warnings generated.
+compiling main.c...
 CRC_program.c(6): warning: In file included from...
 ./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
 #endif
@@ -36,11 +76,11 @@ CRC_program.c(9): warning: In file included from...
 void CRC_voidReset();
                   ^
                    void
-./CRC_interface.h(18): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+./CRC_interface.h(20): warning: this function declaration is not a prototype [-Wstrict-prototypes]
 u32 CRC_u32GetCrc();
                  ^
                   void
-./CRC_interface.h(20): warning: no newline at end of file [-Wnewline-eof]
+./CRC_interface.h(22): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
 CRC_program.c(11): warning: In file included from...
@@ -50,7 +90,7 @@ CRC_program.c(11): warning: In file included from...
 CRC_program.c(26): warning: no previous prototype for function 'CRC_u32GetCrc' [-Wmissing-prototypes]
 u32 CRC_u32GetCrc()
     ^
-./CRC_interface.h(18): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+./CRC_interface.h(20): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
 u32 CRC_u32GetCrc();
     ^
                   void
@@ -120,130 +160,24 @@ RCC_program.c(133): warning: default label in switch which covers all enumeratio
         ^
 10 warnings generated.
 compiling RCC_program.c...
-main.c(2): warning: In file included from...
-./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-main.c(4): warning: In file included from...
-./RCC_interface.h(87): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void RCC_voidInitSystemClock();
-                            ^
-                             void
-main.c(5): warning: In file included from...
-./UART_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidInit();
-                   ^
-                    void
-./UART_interface.h(49): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidDeInit();
-                     ^
-                      void
-main.c(8): warning: In file included from...
-./CRC_interface.h(16): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void CRC_voidReset();
-                  ^
-                   void
-./CRC_interface.h(18): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-u32 CRC_u32GetCrc();
-                 ^
-                  void
-./CRC_interface.h(20): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-main.c(9): warning: In file included from...
-./IWDG_interface.h(9): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void IWDG_voidReset();
-                   ^
-                    void
-main.c(24): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-        GPIO_voidInitPortPinDirection(PORTA  , 9  , 0b1001);      // TX PIN
-                                                    ^
-main.c(25): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-        GPIO_voidInitPortPinDirection(PORTA  , 10 , 0b0100);            // RX PIN
-                                                    ^
-main.c(31): warning: implicit declaration of function 'BL_voidProcessPayLoadMain' is invalid in C99 [-Wimplicit-function-declaration]
-        BL_voidProcessPayLoadMain();
-        ^
-main.c(36): warning: 'return' will never be executed [-Wunreachable-code-return]
-        return 0;
-               ^
-12 warnings generated.
-compiling main.c...
 UART_program.c(9): warning: In file included from...
 ./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-UART_program.c(15): warning: In file included from...
-./UART_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidInit();
-                   ^
-                    void
-./UART_interface.h(49): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidDeInit();
-                     ^
-                      void
-UART_program.c(21): warning: no previous prototype for function 'UART1_voidInit' [-Wmissing-prototypes]
-void UART1_voidInit() {
-     ^
-./UART_interface.h(19): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void UART1_voidInit();
-     ^
-                    void
-UART_program.c(21): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void UART1_voidInit() {
-                   ^
-UART_program.c(41): warning: no previous prototype for function 'UART1_voidDeInit' [-Wmissing-prototypes]
-void UART1_voidDeInit() {
-     ^
-./UART_interface.h(49): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void UART1_voidDeInit();
-     ^
-                      void
-UART_program.c(41): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void UART1_voidDeInit() {
-                     ^
-UART_program.c(59): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+UART_program.c(64): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
                 CLR_BIT(USART1_SR, USART_SR_TC);
                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
 #define CLR_BIT(VAR,BIT)          VAR &= (~(1 << (BIT))) 
                                       ~~  ^~~~~~~~~~~~~
-UART_program.c(71): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+UART_program.c(77): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
                 CLR_BIT(USART1_SR, USART_SR_RXNE);
                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
 #define CLR_BIT(VAR,BIT)          VAR &= (~(1 << (BIT))) 
                                       ~~  ^~~~~~~~~~~~~
-9 warnings generated.
+3 warnings generated.
 compiling UART_program.c...
-FPEC_program.c(7): warning: In file included from...
-./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-FPEC_program.c(12): warning: In file included from...
-./FPEC_config.h(19): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-FPEC_program.c(53): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLR_BIT(FPEC->CR,PER);
-        ^~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= (~(1 << (BIT))) 
-                                      ~~  ^~~~~~~~~~~~~
-FPEC_program.c(71): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLR_BIT(FPEC->CR, PG);
-        ^~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= (~(1 << (BIT))) 
-                                      ~~  ^~~~~~~~~~~~~
-FPEC_program.c(102): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLR_BIT(FPEC->CR, PER);
-        ^~~~~~~~~~~~~~~~~~~~~~
-./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
-#define CLR_BIT(VAR,BIT)          VAR &= (~(1 << (BIT))) 
-                                      ~~  ^~~~~~~~~~~~~
-5 warnings generated.
-compiling FPEC_program.c...
 GPIO_program.c(9): warning: In file included from...
 ./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
 #endif
@@ -331,6 +265,34 @@ GPIO_program.c(134): warning: default label in switch which covers all enumerati
     ^
 28 warnings generated.
 compiling GPIO_program.c...
+FPEC_program.c(7): warning: In file included from...
+./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+FPEC_program.c(12): warning: In file included from...
+./FPEC_config.h(19): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+FPEC_program.c(54): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT(FPEC->CR,PER);
+        ^~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= (~(1 << (BIT))) 
+                                      ~~  ^~~~~~~~~~~~~
+FPEC_program.c(84): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT(FPEC->CR, PG);
+        ^~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= (~(1 << (BIT))) 
+                                      ~~  ^~~~~~~~~~~~~
+FPEC_program.c(115): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLR_BIT(FPEC->CR, PER);
+        ^~~~~~~~~~~~~~~~~~~~~~
+./BIT_MATH.h(10): note: expanded from macro 'CLR_BIT'
+#define CLR_BIT(VAR,BIT)          VAR &= (~(1 << (BIT))) 
+                                      ~~  ^~~~~~~~~~~~~
+5 warnings generated.
+compiling FPEC_program.c...
 BootLoaderApplication.c(6): warning: In file included from...
 ./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
 #endif
@@ -340,110 +302,101 @@ BootLoaderApplication.c(10): warning: In file included from...
 void CRC_voidReset();
                   ^
                    void
-./CRC_interface.h(18): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+./CRC_interface.h(20): warning: this function declaration is not a prototype [-Wstrict-prototypes]
 u32 CRC_u32GetCrc();
                  ^
                   void
-./CRC_interface.h(20): warning: no newline at end of file [-Wnewline-eof]
+./CRC_interface.h(22): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-BootLoaderApplication.c(11): warning: In file included from...
-./UART_interface.h(19): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidInit();
-                   ^
-                    void
-./UART_interface.h(49): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void UART1_voidDeInit();
-                     ^
-                      void
 BootLoaderApplication.c(12): warning: In file included from...
 ./IWDG_interface.h(9): warning: this function declaration is not a prototype [-Wstrict-prototypes]
 void IWDG_voidReset();
                    ^
                     void
 BootLoaderApplication.c(14): warning: In file included from...
-./BootLoaderApplication.h(21): warning: no previous extern declaration for non-static variable 'addr_to_call' [-Wmissing-variable-declarations]
-Function_t addr_to_call = 0;
-           ^
-./BootLoaderApplication.h(21): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-Function_t addr_to_call = 0;
-^
-./BootLoaderApplication.h(47): warning: no newline at end of file [-Wnewline-eof]
+./BootLoaderApplication.h(78): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-BootLoaderApplication.c(66): warning: passing 'char [4]' to parameter of type 'u8 *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+BootLoaderApplication.c(19): warning: no previous extern declaration for non-static variable 'addr_to_call' [-Wmissing-variable-declarations]
+Function_t addr_to_call = 0;
+           ^
+BootLoaderApplication.c(19): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+Function_t addr_to_call = 0;
+^
+BootLoaderApplication.c(70): warning: passing 'char [4]' to parameter of type 'u8 *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
                 UART1_voidTransmitSync("HS\n" , 3);
                                        ^~~~~~
 ./UART_interface.h(30): note: passing argument to parameter 'cpy_arr' here
 void UART1_voidTransmitSync(u8 cpy_arr[] , u8 cpy_arrLen);
                                ^
-BootLoaderApplication.c(78): warning: passing 'volatile u8 [1025]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+BootLoaderApplication.c(82): warning: passing 'volatile u8 [1025]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
                         UART1_voidRecieveSync(PAGE_SIZE , local_u8DataStream);
                                                           ^~~~~~~~~~~~~~~~~~
 ./UART_interface.h(40): note: passing argument to parameter 'DataRecieved' here
 void  UART1_voidRecieveSync( u16 cpy_data_length , u8 * DataRecieved);
                                                         ^
-BootLoaderApplication.c(79): warning: passing 'volatile u8 [1025]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+BootLoaderApplication.c(83): warning: passing 'volatile u8 [1025]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
                         FPEC_voidFlashWrite(local_u8DataStream, APP_PAGE, PAGE_SIZE, local_u16DataOffset);
                                             ^~~~~~~~~~~~~~~~~~
-./FPEC_interface.h(11): note: passing argument to parameter 'Copy_u8Data' here
+./FPEC_interface.h(48): note: passing argument to parameter 'Copy_u8Data' here
 void FPEC_voidFlashWrite(u8 * Copy_u8Data ,u8 cpyPage , u16 Copy_u8DataArrayLength , u16 offset);
                               ^
-BootLoaderApplication.c(82): warning: passing 'char [4]' to parameter of type 'u8 *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+BootLoaderApplication.c(86): warning: passing 'char [4]' to parameter of type 'u8 *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
                         UART1_voidTransmitSync("ok\n" , 3);
                                                ^~~~~~
 ./UART_interface.h(30): note: passing argument to parameter 'cpy_arr' here
 void UART1_voidTransmitSync(u8 cpy_arr[] , u8 cpy_arrLen);
                                ^
-BootLoaderApplication.c(87): warning: passing 'volatile u8 [1025]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+BootLoaderApplication.c(91): warning: passing 'volatile u8 [1025]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
                 UART1_voidRecieveSync( local_u16LastDataChuckLength , local_u8DataStream);
                                                                       ^~~~~~~~~~~~~~~~~~
 ./UART_interface.h(40): note: passing argument to parameter 'DataRecieved' here
 void  UART1_voidRecieveSync( u16 cpy_data_length , u8 * DataRecieved);
                                                         ^
-BootLoaderApplication.c(88): warning: passing 'volatile u8 [1025]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+BootLoaderApplication.c(92): warning: passing 'volatile u8 [1025]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
                 FPEC_voidFlashWrite(local_u8DataStream, APP_PAGE, local_u16LastDataChuckLength , local_u16DataOffset);
                                     ^~~~~~~~~~~~~~~~~~
-./FPEC_interface.h(11): note: passing argument to parameter 'Copy_u8Data' here
+./FPEC_interface.h(48): note: passing argument to parameter 'Copy_u8Data' here
 void FPEC_voidFlashWrite(u8 * Copy_u8Data ,u8 cpyPage , u16 Copy_u8DataArrayLength , u16 offset);
                               ^
-BootLoaderApplication.c(95): warning: passing 'char [4]' to parameter of type 'u8 *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+BootLoaderApplication.c(97): warning: passing 'char [4]' to parameter of type 'u8 *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
                         UART1_voidTransmitSync("ok\n" , 3);
                                                ^~~~~~
 ./UART_interface.h(30): note: passing argument to parameter 'cpy_arr' here
 void UART1_voidTransmitSync(u8 cpy_arr[] , u8 cpy_arrLen);
                                ^
-BootLoaderApplication.c(101): warning: passing 'char [4]' to parameter of type 'u8 *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+BootLoaderApplication.c(103): warning: passing 'char [4]' to parameter of type 'u8 *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
                         UART1_voidTransmitSync("no\n" , 3);
                                                ^~~~~~
 ./UART_interface.h(30): note: passing argument to parameter 'cpy_arr' here
 void UART1_voidTransmitSync(u8 cpy_arr[] , u8 cpy_arrLen);
                                ^
-BootLoaderApplication.c(157): warning: passing 'volatile u8 [2]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+BootLoaderApplication.c(163): warning: passing 'volatile u8 [2]' to parameter of type 'u8 *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
         FPEC_voidFlashWrite(Data, CONDITION_PAGE, 2, BC_OFFSET);
                             ^~~~
-./FPEC_interface.h(11): note: passing argument to parameter 'Copy_u8Data' here
+./FPEC_interface.h(48): note: passing argument to parameter 'Copy_u8Data' here
 void FPEC_voidFlashWrite(u8 * Copy_u8Data ,u8 cpyPage , u16 Copy_u8DataArrayLength , u16 offset);
                               ^
-BootLoaderApplication.c(158): warning: incompatible pointer types passing 'u16 *' (aka 'unsigned short *') to parameter of type 'u8 *' (aka 'unsigned char *') [-Wincompatible-pointer-types]
+BootLoaderApplication.c(164): warning: incompatible pointer types passing 'u16 *' (aka 'unsigned short *') to parameter of type 'u8 *' (aka 'unsigned char *') [-Wincompatible-pointer-types]
         FPEC_voidFlashWrite(&cpy_DataLen, CONDITION_PAGE, 2, DATA_LEN_OFFSET);
                             ^~~~~~~~~~~~
-./FPEC_interface.h(11): note: passing argument to parameter 'Copy_u8Data' here
+./FPEC_interface.h(48): note: passing argument to parameter 'Copy_u8Data' here
 void FPEC_voidFlashWrite(u8 * Copy_u8Data ,u8 cpyPage , u16 Copy_u8DataArrayLength , u16 offset);
                               ^
-BootLoaderApplication.c(159): warning: incompatible pointer types passing 'volatile u16 *' (aka 'volatile unsigned short *') to parameter of type 'u8 *' (aka 'unsigned char *') [-Wincompatible-pointer-types]
+BootLoaderApplication.c(165): warning: incompatible pointer types passing 'volatile u16 *' (aka 'volatile unsigned short *') to parameter of type 'u8 *' (aka 'unsigned char *') [-Wincompatible-pointer-types]
         FPEC_voidFlashWrite(&local_CRCLOW, CONDITION_PAGE, 2, CRC_OFFSET + 0x02);
                             ^~~~~~~~~~~~~
-./FPEC_interface.h(11): note: passing argument to parameter 'Copy_u8Data' here
+./FPEC_interface.h(48): note: passing argument to parameter 'Copy_u8Data' here
 void FPEC_voidFlashWrite(u8 * Copy_u8Data ,u8 cpyPage , u16 Copy_u8DataArrayLength , u16 offset);
                               ^
-BootLoaderApplication.c(160): warning: incompatible pointer types passing 'volatile u16 *' (aka 'volatile unsigned short *') to parameter of type 'u8 *' (aka 'unsigned char *') [-Wincompatible-pointer-types]
+BootLoaderApplication.c(166): warning: incompatible pointer types passing 'volatile u16 *' (aka 'volatile unsigned short *') to parameter of type 'u8 *' (aka 'unsigned char *') [-Wincompatible-pointer-types]
         FPEC_voidFlashWrite(&local_CRCHigh, CONDITION_PAGE, 2, CRC_OFFSET);
                             ^~~~~~~~~~~~~~
-./FPEC_interface.h(11): note: passing argument to parameter 'Copy_u8Data' here
+./FPEC_interface.h(48): note: passing argument to parameter 'Copy_u8Data' here
 void FPEC_voidFlashWrite(u8 * Copy_u8Data ,u8 cpyPage , u16 Copy_u8DataArrayLength , u16 offset);
                               ^
-21 warnings generated.
+19 warnings generated.
 compiling BootLoaderApplication.c...
 IWDG_program.c(6): warning: In file included from...
 ./STD_TYPES.h(20): warning: no newline at end of file [-Wnewline-eof]
@@ -480,9 +433,9 @@ __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9}
 1 warning generated.
 compiling system_stm32f10x.c...
 linking...
-Program Size: Code=2538 RO-data=258 RW-data=0 ZI-data=1640  
+Program Size: Code=2594 RO-data=258 RW-data=0 ZI-data=1640  
 FromELF: creating hex file...
-".\Objects\BootLoader-bin.axf" - 0 Error(s), 100 Warning(s).
+".\Objects\BootLoader-bin.axf" - 0 Error(s), 90 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -509,10 +462,10 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Source file:   Device\Source\system_stm32f10x.c
-      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\system_stm32f10x.c
 Build Time Elapsed:  00:00:02
 </pre>
 </body>

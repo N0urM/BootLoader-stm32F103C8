@@ -31,6 +31,7 @@ u32  FPEC_u32ReadWord(u8 copyPage , u16 offset1)
 	volatile u32 val=0;
 	volatile u16 tmp_val ;
 
+	// Use TMP value to manipulate Little indian format.
 	tmp_val=FPEC_u16ReadHalfWord( copyPage ,  offset1);
 	tmp_val = (u16) ((tmp_val&0xFF)<<8) | (u16) ((tmp_val>>8) & 0xFF);
 
@@ -66,6 +67,18 @@ void FPEC_voidFlashWrite(u8 * Copy_u8Data , u8 cpyPage , u16 Copy_u8DataArrayLen
 		// reset EOP BIT by writing 1 
 		SET_BIT(FPEC->SR, EOP);
 	} 
+	// Last byte
+	if (i<Copy_u8DataArrayLength)
+	{
+		local_u16Data = (u16)(( (u16)Copy_u8Data[i] ) + ( (u16) 0xFF<<8 )); 
+		*((volatile u16*)local_u32address) = local_u16Data;
+		local_u32address +=2;
+		// wait busy flag and End of operation
+		while (GET_BIT(FPEC->SR,BSY ) == 1);
+		// reset EOP BIT by writing 1 
+		SET_BIT(FPEC->SR, EOP);
+	
+	}
 	
 	// Clear progrmming 
 	CLR_BIT(FPEC->CR, PG);

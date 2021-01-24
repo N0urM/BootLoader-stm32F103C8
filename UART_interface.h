@@ -16,7 +16,7 @@
     Parameters   : none
     Return value : none
 ***************************************************************/
-void UART1_voidInit();
+void UART1_voidInit(void);
 
 
 /*************************************************************
@@ -46,6 +46,6 @@ void  UART1_voidRecieveSync( u16 cpy_data_length , u8 * DataRecieved);
     Parameters   : none
     Return value : none
 ***************************************************************/
-void UART1_voidDeInit();
+void UART1_voidDeInit(void);
 
 #endif // End Of File

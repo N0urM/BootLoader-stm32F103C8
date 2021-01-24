@@ -9,12 +9,14 @@
 
 #define CRC_RESET  1
 
-
-
+/****************** Functions prototypes ********************/
 
 u32 CRC_u32Claculate(u32 Copy_u32Data);
+
 void CRC_voidReset();
+
 void CRC_u32Claculate2(u32 Copy_u32Data);
+
 u32 CRC_u32GetCrc();
 
 #endif
